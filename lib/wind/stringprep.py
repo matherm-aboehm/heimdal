@@ -57,7 +57,7 @@ def symbols(tabledict, tables):
         list = list + tabledict.get(x, [])
     if len(list) == 0:
         return ""
-    return "|".join(map(lambda x: "WIND_PROFILE_%s" % (string.upper(x)), list))
+    return "|".join(map(lambda x: "WIND_PROFILE_%s" % (str.upper(x)), list))
 
 def get_errorlist():
     d = dict()
