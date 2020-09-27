@@ -64,6 +64,8 @@ MAKEINFOFLAGS = --css-include=$(SRCDIR)/heimdal.css
 
 !ifdef APPVEYOR
 MAKEINFO = $(PERL) C:\msys64\usr\bin\makeinfo
+!else
+MAKEINFO = $(SRC)\makeinfo
 !endif
 
 ######################################################################
