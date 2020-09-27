@@ -40,8 +40,9 @@ open(CL, '-|', $cl_cmd." 2>&1") or die "Can't run C compiler command [$cl_cmd]";
 
 $verline = <CL>;
 
-if ($verline =~ /(\d+).(\d+).(\d+).(\d+)/) {
-    print "Found Version: $1.$2.$3.$4\n";
+if ($verline =~ /(\d+)\.(\d+)\.(?|(\d+)\.(\d+)|(\d+))/) {
+    $rev = $4 + 0;
+    print "Found Version: $1.$2.$3.$rev\n";
     exit $1 + 0;
 } else {
     print "Mismatch";
