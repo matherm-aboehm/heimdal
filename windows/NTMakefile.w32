@@ -69,6 +69,7 @@ MCPU=amd64
 !    error Unknown CPU
 !  endif
 
+PERL=perl.exe
 !include "NTMakefile.config"
 
 #----------------------------------------------------------------
@@ -125,7 +126,7 @@ PERL=perl.exe
 CMP=cmp.exe
 MAKECAT=makecat.exe
 HHC=hhc.exe
-MAKEINFO=makeinfo.exe
+MAKEINFO=makeinfo.cmd
 SED=sed.exe
 
 CANDLE_CMD=candle.exe
