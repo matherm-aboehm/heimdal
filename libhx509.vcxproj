@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{67BA35DD-F324-4E57-B0BE-74697BE4D9B3}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="heimdal.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\hx509\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\hx509\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\hx509\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\hx509\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;ASN1_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;ASN1_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;ASN1_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;ASN1_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="lib\hx509\ca.c" />
+    <ClCompile Include="lib\hx509\cert.c" />
+    <ClCompile Include="lib\hx509\cms.c" />
+    <ClCompile Include="lib\hx509\collector.c" />
+    <ClCompile Include="lib\hx509\crypto-ec.c" />
+    <ClCompile Include="lib\hx509\crypto.c" />
+    <ClCompile Include="lib\hx509\env.c" />
+    <ClCompile Include="lib\hx509\error.c" />
+    <ClCompile Include="lib\hx509\file.c" />
+    <ClCompile Include="lib\hx509\keyset.c" />
+    <ClCompile Include="lib\hx509\ks_dir.c" />
+    <ClCompile Include="lib\hx509\ks_file.c" />
+    <ClCompile Include="lib\hx509\ks_keychain.c" />
+    <ClCompile Include="lib\hx509\ks_mem.c" />
+    <ClCompile Include="lib\hx509\ks_null.c" />
+    <ClCompile Include="lib\hx509\ks_p11.c" />
+    <ClCompile Include="lib\hx509\ks_p12.c" />
+    <ClCompile Include="lib\hx509\lock.c" />
+    <ClCompile Include="lib\hx509\name.c" />
+    <ClCompile Include="lib\hx509\peer.c" />
+    <ClCompile Include="lib\hx509\print.c" />
+    <ClCompile Include="lib\hx509\req.c" />
+    <ClCompile Include="lib\hx509\revoke.c" />
+    <ClCompile Include="lib\hx509\sel.c" />
+    <ClCompile Include="lib\hx509\softp11.c" />
+    <ClCompile Include="$(IntDir)asn1_ocsp_asn1.c" />
+    <ClCompile Include="$(IntDir)asn1_pkcs10_asn1.c" />
+    <ClCompile Include="$(IntDir)hx509_err.c" />
+    <ClCompile Include="$(IntDir)sel-gram.c">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">lib\hx509;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">lib\hx509;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">lib\hx509;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">lib\hx509;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)sel-lex.c">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">lib\hx509;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">lib\hx509;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">lib\hx509;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|x64'">lib\hx509;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">YY_NO_UNISTD_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">YY_NO_UNISTD_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">YY_NO_UNISTD_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">YY_NO_UNISTD_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\hx509\libhx509-exports.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\hx509\char_map.h" />
+    <ClInclude Include="lib\hx509\hx509.h" />
+    <ClInclude Include="lib\hx509\hx_locl.h" />
+    <ClInclude Include="lib\hx509\ref\pkcs11.h" />
+    <ClInclude Include="lib\hx509\sel.h" />
+    <ClInclude Include="$(OutDir)inc\crmf_asn1.h" />
+    <ClInclude Include="$(OutDir)inc\ocsp_asn1.h" />
+    <ClInclude Include="$(OutDir)inc\pkcs10_asn1.h" />
+    <ClInclude Include="$(IntDir)crmf_asn1-priv.h" />
+    <_ProtoSources Include="lib\hx509\ca.c;lib\hx509\cert.c;lib\hx509\cms.c;lib\hx509\collector.c;lib\hx509\crypto.c;lib\hx509\crypto-ec.c;lib\hx509\doxygen.c;lib\hx509\error.c;lib\hx509\env.c;lib\hx509\file.c;lib\hx509\hx509.h;lib\hx509\hx_locl.h;lib\hx509\sel.c;lib\hx509\sel.h;lib\hx509\sel-gram.y;lib\hx509\sel-lex.l;lib\hx509\keyset.c;lib\hx509\ks_dir.c;lib\hx509\ks_file.c;lib\hx509\ks_mem.c	;lib\hx509\ks_null.c;lib\hx509\ks_p11.c;lib\hx509\ks_p12.c;lib\hx509\ks_keychain.c;lib\hx509\lock.c;lib\hx509\name.c;lib\hx509\peer.c;lib\hx509\print.c;lib\hx509\softp11.c;lib\hx509\ref\pkcs11.h;lib\hx509\req.c;lib\hx509\revoke.c" />
+    <CustomBuild Include="$(IntDir)hx509-protos.h">
+      <Command>$(PERL) "$(SolutionDir)cf\make-proto.pl" -R "^(_|^C)" -E HX509_LIB -q -P remove -o %(Identity) @(_ProtoSources->'%(Identity)', ' ')</Command>
+      <Outputs>%(Identity)</Outputs>
+      <AdditionalInputs>@(_ProtoSources)</AdditionalInputs>
+      <Message>Generate prototype header...</Message>
+      <OutputItemType>ClInclude</OutputItemType>
+      <TreatOutputAsContent>true</TreatOutputAsContent>
+      <RootFolder>$(OutDir)inc\</RootFolder>
+      <BuildInParallel>true</BuildInParallel>
+    </CustomBuild>
+    <CustomBuild Include="$(IntDir)hx509-private.h">
+      <Command>$(PERL) "$(SolutionDir)cf\make-proto.pl" -q -P remove -p %(Identity) @(_ProtoSources->'%(Identity)', ' ')</Command>
+      <Outputs>%(Identity)</Outputs>
+      <AdditionalInputs>@(_ProtoSources)</AdditionalInputs>
+      <Message>Generate private prototype header...</Message>
+      <OutputItemType>ClInclude</OutputItemType>
+      <TreatOutputAsContent>true</TreatOutputAsContent>
+      <RootFolder>$(OutDir)inc\</RootFolder>
+      <BuildInParallel>true</BuildInParallel>
+    </CustomBuild>
+    <ClInclude Include="$(IntDir)hx509_err.h" />
+    <ClInclude Include="$(IntDir)ocsp_asn1-priv.h" />
+    <ClInclude Include="$(IntDir)pkcs10_asn1-priv.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ASN1File Include="lib\hx509\crmf.asn1">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ASN1File>
+    <ASN1File Include="lib\hx509\ocsp.asn1">
+      <PreserveBinary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">OCSPTBSRequest;OCSPResponseData;%(PreserveBinary)</PreserveBinary>
+      <PreserveBinary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">OCSPTBSRequest;OCSPResponseData;%(PreserveBinary)</PreserveBinary>
+      <PreserveBinary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">OCSPTBSRequest;OCSPResponseData;%(PreserveBinary)</PreserveBinary>
+      <PreserveBinary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">OCSPTBSRequest;OCSPResponseData;%(PreserveBinary)</PreserveBinary>
+    </ASN1File>
+    <ASN1File Include="lib\hx509\pkcs10.asn1">
+      <PreserveBinary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CertificationRequestInfo;%(PreserveBinary)</PreserveBinary>
+      <PreserveBinary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CertificationRequestInfo;%(PreserveBinary)</PreserveBinary>
+      <PreserveBinary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CertificationRequestInfo;%(PreserveBinary)</PreserveBinary>
+      <PreserveBinary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CertificationRequestInfo;%(PreserveBinary)</PreserveBinary>
+    </ASN1File>
+  </ItemGroup>
+  <ItemGroup>
+    <ErrorTable Include="lib\hx509\hx509_err.et" />
+  </ItemGroup>
+  <ItemGroup>
+    <YaccFile Include="lib\hx509\sel-gram.y">
+      <GenerateHeaders Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CreateFilename</GenerateHeaders>
+      <GenerateHeaders Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CreateFilename</GenerateHeaders>
+      <GenerateHeaders Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CreateFilename</GenerateHeaders>
+      <GenerateHeaders Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CreateFilename</GenerateHeaders>
+    </YaccFile>
+  </ItemGroup>
+  <ItemGroup>
+    <LexFile Include="lib\hx509\sel-lex.l">
+      <Prefix Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_hx509_sel_yy</Prefix>
+      <Prefix Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_hx509_sel_yy</Prefix>
+      <Prefix Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_hx509_sel_yy</Prefix>
+      <Prefix Condition="'$(Configuration)|$(Platform)'=='Release|x64'">_hx509_sel_yy</Prefix>
+    </LexFile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="heimdal.targets" />
+  </ImportGroup>
+</Project>

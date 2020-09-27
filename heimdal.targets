@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <PropertyPageSchema
+      Include="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml" />
+    <AvailableItemName Include="YaccFile">
+      <Targets>_YACC</Targets>
+    </AvailableItemName>
+    <AvailableItemName Include="LexFile">
+      <Targets>_LEX</Targets>
+    </AvailableItemName>
+    <AvailableItemName Include="ErrorTable">
+      <Targets>_COMPILE_ET</Targets>
+    </AvailableItemName>
+    <AvailableItemName Include="ASN1File">
+      <Targets>_ASN1_COMPILE</Targets>
+    </AvailableItemName>
+  </ItemGroup>
+  <PropertyGroup>
+    <ComputeCompileInputsTargets>
+      $(ComputeCompileInputsTargets);
+      ComputeYACCOutput;
+      ComputeLEXOutput;
+      ComputeCOMPILE_ETOutput;
+      ComputeASN1_COMPILEOutput;
+    </ComputeCompileInputsTargets>
+  </PropertyGroup>
+  <UsingTask
+    TaskName="YACC"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="LEX"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="COMPILE_ET"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="ASN1_COMPILE"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+
+  <Target Name="_PrepareMetadata"
+          Condition="'@(YaccFile)' != '' or '@(LexFile)' != '' or '@(ASN1File)' != ''">
+    <ItemGroup Condition="'@(YaccFile)' != ''">
+      <_TempYaccFile Include="@(YaccFile)" Condition="'%(YaccFile.GenerateHeaders)' == 'CreateFilename'" />
+      <_TempYaccFile Include="@(YaccFile)" Condition="'%(YaccFile.GenerateHeaders)' == 'Create'">
+        <HeaderFile>y.tab.h</HeaderFile>
+      </_TempYaccFile>
+      <_TempYaccFile Include="@(YaccFile)" Condition="'%(YaccFile.GenerateHeaders)' == 'No'">
+        <HeaderFile></HeaderFile>
+      </_TempYaccFile>
+    </ItemGroup>
+    <ItemGroup Condition="'@(LexFile)' != ''">
+      <_TempLexFile Include="@(LexFile)" Condition="'%(LexFile.GenerateHeaders)' == 'CreateFilename'" />
+      <_TempLexFile Include="@(LexFile)" Condition="'%(LexFile.GenerateHeaders)' == 'Create'">
+        <HeaderFile>y.tab.h</HeaderFile>
+      </_TempLexFile>
+      <_TempLexFile Include="@(LexFile)" Condition="'%(LexFile.GenerateHeaders)' == 'No'">
+        <HeaderFile></HeaderFile>
+      </_TempLexFile>
+    </ItemGroup>
+    <ItemGroup Condition="'@(ASN1File)' != ''">
+      <_TempASN1File Include="@(ASN1File)" Condition="'%(ASN1File.OneCodeFile)' != 'true'">
+        <OutputFileName Condition="'%(BaseName)' != ''">%(OutputDirectory)%(BaseName).x</OutputFileName>
+        <OutputFileName Condition="'%(_TempASN1File.OutputFileName)' == ''">%(OutputDirectory)%(Filename).x</OutputFileName>
+      </_TempASN1File>
+      <_TempASN1File Include="@(ASN1File)" Condition="'%(ASN1File.OneCodeFile)' == 'true'">
+        <OutputFileName Condition="'%(BaseName)' != ''">%(OutputDirectory)asn1_%(BaseName).x</OutputFileName>
+        <OutputFileName Condition="'%(_TempASN1File.OutputFileName)' == ''">%(OutputDirectory)asn1_%(Filename).x</OutputFileName>
+      </_TempASN1File>
+
+      <_TempASN1File>
+        <PublicHeaderFile Condition="'%(BaseName)' != ''">%(OutputDirectory)%(BaseName).hx</PublicHeaderFile>
+        <PrivateHeaderFile Condition="'%(BaseName)' != ''">%(OutputDirectory)%(BaseName)-priv.hx</PrivateHeaderFile>
+      </_TempASN1File>
+      <_TempASN1File>
+        <PublicHeaderFile Condition="'%(PublicHeaderFile)' == ''">%(OutputDirectory)%(Filename).hx</PublicHeaderFile>
+        <PrivateHeaderFile Condition="'%(PrivateHeaderFile)' == ''">%(OutputDirectory)%(Filename)-priv.hx</PrivateHeaderFile>
+      </_TempASN1File>
+      <_TempASN1File>
+        <HeaderFiles>%(PublicHeaderFile);%(PrivateHeaderFile)</HeaderFiles>
+      </_TempASN1File>
+    </ItemGroup>
+
+    <ItemGroup Condition="'@(_TempYaccFile)' != ''">
+      <YaccFile Remove="@(YaccFile)" />
+      <YaccFile Include="@(_TempYaccFile)" />
+    </ItemGroup>
+    <ItemGroup Condition="'@(_TempLexFile)' != ''">
+      <LexFile Remove="@(LexFile)" />
+      <LexFile Include="@(_TempLexFile)" />
+    </ItemGroup>
+    <ItemGroup Condition="'@(_TempASN1File)' != ''">
+      <ASN1File Remove="@(ASN1File)" />
+      <ASN1File Include="@(_TempASN1File)" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="_WriteYaccTlogs"
+          Condition="'@(YaccFile)' != '' and '@(SelectedFiles)' == ''">
+    <ItemGroup>
+      <_YaccReadTlog Include="^%(YaccFile.FullPath);%(YaccFile.AdditionalDependencies)"
+                     Condition="'%(YaccFile.ExcludedFromBuild)' != 'true' and '%(YaccFile.OutputFileName)' != ''"/>
+      <_YaccWriteTlog Include="^%(YaccFile.FullPath);$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(YaccFile.OutputFileName)'))"
+                      Condition="'%(YaccFile.ExcludedFromBuild)' != 'true' and '%(YaccFile.OutputFileName)' != ''"/>
+      <_YaccWriteTlog Include="$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(YaccFile.HeaderFile)'))"
+                      Condition="'%(YaccFile.ExcludedFromBuild)' != 'true' and '%(YaccFile.HeaderFile)' != ''"/>
+    </ItemGroup>
+
+    <WriteLinesToFile
+      Condition="'@(_YaccReadTlog)' != ''"
+      File="$(TLogLocation)Yacc.read.1u.tlog"
+      Lines="@(_YaccReadTlog->MetaData('Identity')->ToUpperInvariant());"
+      Overwrite="true"
+      Encoding="Unicode"/>
+    <WriteLinesToFile
+      Condition="'@(_YaccWriteTlog)' != ''"
+      File="$(TLogLocation)Yacc.write.1u.tlog"
+      Lines="@(_YaccWriteTlog->MetaData('Identity')->ToUpperInvariant());"
+      Overwrite="true"
+      Encoding="Unicode"/>
+
+    <ItemGroup>
+      <_YaccReadTlog Remove="@(_YaccReadTlog)" />
+      <_YaccWriteTlog Remove="@(_YaccWriteTlog)" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="_WriteLexTlogs"
+         Condition="'@(LexFile)' != '' and '@(SelectedFiles)' == ''">
+    <ItemGroup>
+      <_LexReadTlog Include="^%(LexFile.FullPath);%(LexFile.AdditionalDependencies)"
+                     Condition="'%(LexFile.ExcludedFromBuild)' != 'true' and '%(LexFile.OutputFileName)' != ''"/>
+      <_LexWriteTlog Include="^%(LexFile.FullPath);$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(LexFile.OutputFileName)'))"
+                      Condition="'%(LexFile.ExcludedFromBuild)' != 'true' and '%(LexFile.OutputFileName)' != ''"/>
+      <_LexWriteTlog Include="$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(LexFile.HeaderFile)'))"
+                      Condition="'%(LexFile.ExcludedFromBuild)' != 'true' and '%(LexFile.HeaderFile)' != ''"/>
+    </ItemGroup>
+
+    <WriteLinesToFile
+      Condition="'@(_LexReadTlog)' != ''"
+      File="$(TLogLocation)Lex.read.1u.tlog"
+      Lines="@(_LexReadTlog->MetaData('Identity')->ToUpperInvariant());"
+      Overwrite="true"
+      Encoding="Unicode"/>
+    <WriteLinesToFile
+      Condition="'@(_LexWriteTlog)' != ''"
+      File="$(TLogLocation)Lex.write.1u.tlog"
+      Lines="@(_LexWriteTlog->MetaData('Identity')->ToUpperInvariant());"
+      Overwrite="true"
+      Encoding="Unicode"/>
+
+    <ItemGroup>
+      <_LexReadTlog Remove="@(_LexReadTlog)" />
+      <_LexWriteTlog Remove="@(_LexWriteTlog)" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="_WriteEtTlogs"
+         Condition="'@(ErrorTable)' != '' and '@(SelectedFiles)' == ''">
+    <ItemGroup>
+      <_EtReadTlog Include="^%(ErrorTable.FullPath);%(ErrorTable.AdditionalDependencies)"
+                     Condition="'%(ErrorTable.ExcludedFromBuild)' != 'true' and '%(ErrorTable.OutputDirectory)' != ''"/>
+      <_EtWriteTlog Include="^%(ErrorTable.FullPath);$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(ErrorTable.OutputDirectory)%(ErrorTable.Filename).c'));$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(ErrorTable.OutputDirectory)%(ErrorTable.Filename).h'))"
+                      Condition="'%(ErrorTable.ExcludedFromBuild)' != 'true' and '%(ErrorTable.OutputDirectory)' != ''"/>
+    </ItemGroup>
+
+    <WriteLinesToFile
+      Condition="'@(_EtReadTlog)' != ''"
+      File="$(TLogLocation)Et.read.1u.tlog"
+      Lines="@(_EtReadTlog->MetaData('Identity')->ToUpperInvariant());"
+      Overwrite="true"
+      Encoding="Unicode"/>
+    <WriteLinesToFile
+      Condition="'@(_EtWriteTlog)' != ''"
+      File="$(TLogLocation)Et.write.1u.tlog"
+      Lines="@(_EtWriteTlog->MetaData('Identity')->ToUpperInvariant());"
+      Overwrite="true"
+      Encoding="Unicode"/>
+
+    <ItemGroup>
+      <_EtReadTlog Remove="@(_EtReadTlog)" />
+      <_EtWriteTlog Remove="@(_EtWriteTlog)" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="_WriteASN1Tlogs"
+         Condition="'@(ASN1File)' != '' and '@(SelectedFiles)' == ''">
+    <ItemGroup>
+      <_TempFiles Include="@(ASN1File->'%(FullPath)')" Condition="'%(ASN1File.ExcludedFromBuild)' != 'true' and '%(ASN1File.OutputFileName)' != ''">
+        <OutputFileName>@(ASN1File->MetaData('OutputFileName')->FullPath()->Distinct())</OutputFileName>
+        <HeaderFiles>@(ASN1File->MetaData('HeaderFiles')->FullPath()->Distinct())</HeaderFiles>
+      </_TempFiles>
+    </ItemGroup>
+    <PropertyGroup>
+      <_TempFiles>@(_TempFiles->'^%(Identity);%(OutputFileName);%(HeaderFiles)')</_TempFiles>
+    </PropertyGroup>
+    <ItemGroup>
+      <_ASN1ReadTlog Include="^%(ASN1File.FullPath);%(ASN1File.AdditionalDependencies)"
+                     Condition="'%(ASN1File.ExcludedFromBuild)' != 'true' and '%(ASN1File.OutputFileName)' != ''"/>
+      <_ASN1WriteTlog Include="$(_TempFiles)"/>
+    </ItemGroup>
+
+    <WriteLinesToFile
+      Condition="'@(_ASN1ReadTlog)' != ''"
+      File="$(TLogLocation)ASN1.read.1u.tlog"
+      Lines="@(_ASN1ReadTlog->MetaData('Identity')->ToUpperInvariant());"
+      Overwrite="true"
+      Encoding="Unicode"/>
+    <WriteLinesToFile
+      Condition="'@(_ASN1WriteTlog)' != ''"
+      File="$(TLogLocation)ASN1.write.1u.tlog"
+      Lines="@(_ASN1WriteTlog->MetaData('Identity')->ToUpperInvariant());"
+      Overwrite="true"
+      Encoding="Unicode"/>
+
+    <ItemGroup>
+      <_ASN1ReadTlog Remove="@(_ASN1ReadTlog)" />
+      <_ASN1WriteTlog Remove="@(_ASN1WriteTlog)" />
+    </ItemGroup>
+  </Target>
+
+  <Target
+    Name="_YACC"
+    BeforeTargets="$(YACCBeforeTargets)"
+    AfterTargets="$(YACCAfterTargets)"
+    Condition="'@(YaccFile)' != ''"
+    Outputs="%(YaccFile.OutputFileName);%(YaccFile.HeaderFile)"
+    Inputs="%(YaccFile.Identity);%(YaccFile.AdditionalDependencies);$(MSBuildProjectFile)"
+    DependsOnTargets="_PrepareMetadata;_WriteYaccTlogs;_SelectedFiles">
+    <ItemGroup Condition="'@(SelectedFiles)' != ''">
+      <YaccFile Remove="@(YaccFile)" Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(YaccFile.ExecutionDescription)" />
+    <YACC
+      Condition="'@(YaccFile)' != '' and '%(YaccFile.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(YaccFile.CommandLineTemplate)"
+      OutputFileName="%(YaccFile.OutputFileName)"
+      GenerateHeaders="%(YaccFile.GenerateHeaders)"
+      HeaderFile="%(YaccFile.HeaderFile)"
+      Debug="%(YaccFile.Debug)"
+      Verbose="%(YaccFile.Verbose)"
+      NoLines="%(YaccFile.NoLines)"
+      AdditionalOptions="%(YaccFile.AdditionalOptions)"
+      Inputs="%(YaccFile.Identity)" />
+  </Target>
+  <Target
+    Name="_LEX"
+    BeforeTargets="$(LEXBeforeTargets)"
+    AfterTargets="$(LEXAfterTargets)"
+    Condition="'@(LexFile)' != ''"
+    Outputs="%(LexFile.OutputFileName);%(LexFile.HeaderFile)"
+    Inputs="%(LexFile.Identity);%(LexFile.AdditionalDependencies);$(MSBuildProjectFile)"
+    DependsOnTargets="_PrepareMetadata;_WriteLexTlogs;_SelectedFiles">
+    <ItemGroup Condition="'@(SelectedFiles)' != ''">
+      <LexFile Remove="@(LexFile)" Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(LexFile.ExecutionDescription)" />
+    <LEX
+      Condition="'@(LexFile)' != '' and '%(LexFile.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(LexFile.CommandLineTemplate)"
+      OutputFileName="%(LexFile.OutputFileName)"
+      GenerateHeaders="%(LexFile.GenerateHeaders)"
+      HeaderFile="%(LexFile.HeaderFile)"
+      IncludeFile="%(LexFile.IncludeFile)"
+      Debug="%(LexFile.Debug)"
+      Prefix="%(LexFile.Prefix)"
+      AdditionalOptions="%(LexFile.AdditionalOptions)"
+      Inputs="%(LexFile.Identity)" />
+  </Target>
+  <Target
+    Name="_COMPILE_ET"
+    BeforeTargets="$(COMPILE_ETBeforeTargets)"
+    AfterTargets="$(COMPILE_ETAfterTargets)"
+    Condition="'@(ErrorTable)' != ''"
+    Outputs="%(ErrorTable.OutputDirectory)%(ErrorTable.Filename).c;%(ErrorTable.OutputDirectory)%(ErrorTable.Filename).h"
+    Inputs="%(ErrorTable.Identity);%(ErrorTable.AdditionalDependencies);$(MSBuildProjectFile)"
+    DependsOnTargets="_WriteEtTlogs;_SelectedFiles">
+    <ItemGroup Condition="'@(SelectedFiles)' != ''">
+      <ErrorTable Remove="@(ErrorTable)" Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(ErrorTable.ExecutionDescription)" />
+    <COMPILE_ET
+      Condition="'@(ErrorTable)' != '' and '%(ErrorTable.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(ErrorTable.CommandLineTemplate)"
+      ToolPath="%(ErrorTable.ToolPath)"
+      OutputDirectory="%(ErrorTable.OutputDirectory)"
+      AdditionalOptions="%(ErrorTable.AdditionalOptions)"
+      Inputs="$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(ErrorTable.Identity)'))" />
+  </Target>
+  <Target
+    Name="_ASN1_COMPILE"
+    BeforeTargets="$(ASN1_COMPILEBeforeTargets)"
+    AfterTargets="$(ASN1_COMPILEAfterTargets)"
+    Condition="'@(ASN1File)' != ''"
+    Outputs="@(ASN1File->MetaData('OutputFileName'));@(ASN1File->MetaData('HeaderFiles'))"
+    Inputs="%(ASN1File.Identity);%(ASN1File.AdditionalDependencies);$(MSBuildProjectFile)"
+    DependsOnTargets="_PrepareMetadata;_WriteASN1Tlogs;_SelectedFiles">
+    <ItemGroup Condition="'@(SelectedFiles)' != ''">
+      <ASN1File Remove="@(ASN1File)" Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(ASN1File.ExecutionDescription)" />
+    <ASN1_COMPILE
+      Condition="'@(ASN1File)' != '' and '%(ASN1File.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(ASN1File.CommandLineTemplate)"
+      ToolPath="%(ASN1File.ToolPath)"
+      OutputDirectory="%(ASN1File.OutputDirectory)"
+      BaseName="%(ASN1File.BaseName)"
+      OneCodeFile="%(ASN1File.OneCodeFile)"
+      PreserveBinary="%(ASN1File.PreserveBinary)"
+      Sequence="%(ASN1File.Sequence)"
+      OptionFile="%(ASN1File.OptionFile)"
+      AdditionalOptions="%(ASN1File.AdditionalOptions)"
+      Inputs="$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(ASN1File.Identity)'))" />
+  </Target>
+  <Target
+    Name="ComputeYACCOutput"
+    Condition="'@(YaccFile)' != ''">
+    <ItemGroup>
+      <!-- TODO: Normalize both paths (Include, Exclude) for exclusion? -->
+      <_ToExclude Include="%(ClCompile.Identity)" />
+      <ClCompile Include="@(YaccFile->Metadata('OutputFileName')->Distinct()->ClearMetadata())" Exclude="@(_ToExclude)" Condition="'%(YaccFile.ExcludedFromBuild)' != 'true'"/>
+      <ClInclude Include="@(YaccFile->Metadata('HeaderFile')->Distinct()->ClearMetadata())"
+                 Condition="'%(YaccFile.ExcludedFromBuild)' != 'true' and '%(YaccFile.HeaderFile)' != ''"/>
+    </ItemGroup>
+  </Target>
+  <Target
+    Name="ComputeLEXOutput"
+    Condition="'@(LexFile)' != ''">
+    <ItemGroup>
+      <_ToExclude Include="%(ClCompile.Identity)" />
+      <ClCompile Include="@(LexFile->Metadata('OutputFileName')->Distinct()->ClearMetadata())" Exclude="@(_ToExclude)" Condition="'%(LexFile.ExcludedFromBuild)' != 'true'"/>
+      <ClInclude Include="@(LexFile->Metadata('HeaderFile')->Distinct()->ClearMetadata())"
+                 Condition="'%(LexFile.ExcludedFromBuild)' != 'true' and '%(LexFile.HeaderFile)' != ''"/>
+    </ItemGroup>
+  </Target>
+  <Target
+    Name="ComputeCOMPILE_ETOutput"
+    Condition="'@(ErrorTable)' != ''">
+    <ItemGroup>
+      <_ToExclude Include="%(ClCompile.Identity)" />
+      <ClCompile Include="%(ErrorTable.OutputDirectory)%(ErrorTable.Filename).c" Exclude="@(_ToExclude)" Condition="'%(ErrorTable.ExcludedFromBuild)' != 'true'"/>
+      <ClInclude Include="%(ErrorTable.OutputDirectory)%(ErrorTable.Filename).h" Condition="'%(ErrorTable.ExcludedFromBuild)' != 'true'"/>
+    </ItemGroup>
+  </Target>
+  <Target
+    Name="ComputeASN1_COMPILEOutput"
+    Condition="'@(ASN1File)' != ''"
+    DependsOnTargets="_PrepareMetadata">
+    <ItemGroup>
+      <_CopyOutputFiles Include="@(ASN1File->Metadata('OutputFileName')->Distinct()->ClearMetadata())" Condition="'%(ASN1File.ExcludedFromBuild)' != 'true'">
+        <DestinationFolders>%(ASN1File.OutputDirectory)</DestinationFolders>
+      </_CopyOutputFiles>
+      <_CopyHeaderFiles Include="@(ASN1File->Metadata('PublicHeaderFile')->Distinct()->ClearMetadata())" Condition="'%(ASN1File.ExcludedFromBuild)' != 'true'">
+        <DestinationFolders>$(OutDir)inc\</DestinationFolders>
+      </_CopyHeaderFiles>
+      <_CopyHeaderFiles Include="@(ASN1File->Metadata('PrivateHeaderFile')->Distinct()->ClearMetadata())" Condition="'%(ASN1File.ExcludedFromBuild)' != 'true'">
+        <DestinationFolders>%(ASN1File.OutputDirectory)</DestinationFolders>
+      </_CopyHeaderFiles>
+      <!-- one file can be copies to multiple directories and we need a separate item for each copy to use Copy task -->
+      <_CopyFileDestination Include="%(_CopyOutputFiles.DestinationFolders)" Condition="'%(_CopyOutputFiles.DestinationFolders)' != ''">
+        <DestinationFileName>%(_CopyOutputFiles.Filename).c</DestinationFileName>
+        <SrcFile>%(_CopyOutputFiles.Identity)</SrcFile>
+        <DestingationFolders></DestingationFolders>
+        <TreatOutputAsContent>%(_CopyOutputFiles.TreatOutputAsContent)</TreatOutputAsContent>
+        <RootFolder>%(_CopyOutputFiles.RootFolder)</RootFolder>
+      </_CopyFileDestination>
+      <_CopyFileDestination Include="%(_CopyHeaderFiles.DestinationFolders)" Condition="'%(_CopyHeaderFiles.DestinationFolders)' != ''">
+        <DestinationFileName>%(_CopyHeaderFiles.Filename).h</DestinationFileName>
+        <SrcFile>%(_CopyHeaderFiles.Identity)</SrcFile>
+        <DestingationFolders></DestingationFolders>
+        <TreatOutputAsContent>%(_CopyHeaderFiles.TreatOutputAsContent)</TreatOutputAsContent>
+        <RootFolder>%(_CopyHeaderFiles.RootFolder)</RootFolder>
+      </_CopyFileDestination>
+    </ItemGroup>
+
+    <ItemGroup Condition="'@(_CopyFileDestination)' != ''">
+      <_CopyFile Include="%(_CopyFileDestination.SrcFile)">
+        <DestinationFolder>%(_CopyFileDestination.Identity)</DestinationFolder>
+        <DestinationFileName>%(_CopyFileDestination.DestinationFileName)</DestinationFileName>
+        <TreatOutputAsContent>%(_CopyFileDestination.TreatOutputAsContent)</TreatOutputAsContent>
+        <RootFolder>%(_CopyFileDestination.RootFolder)</RootFolder>
+      </_CopyFile>
+
+      <_CopyFile>
+        <DestinationFileName Condition="'%(DestinationFileName)' == ''">%(FileName).%(Extension)</DestinationFileName>
+        <FullDestinationPath>$([MSBuild]::NormalizePath('%(DestinationFolder)', '%(DestinationFileName)'))</FullDestinationPath>
+      </_CopyFile>
+      <_OutOfDateCopyFile Include="@(_CopyFile)" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_CopyFileDestination Remove="@(_CopyFileDestination)" />
+    </ItemGroup>
+
+    <GetOutOfDateItems
+      Sources                   ="@(_CopyFile)"
+
+      OutputsMetadataName       ="FullDestinationPath"
+      CommandMetadataName       ="FullDestinationPath"
+      
+      TLogDirectory             ="$(TLogLocation)"
+      TLogNamePrefix            ="CopyFile"
+      >
+      <Output TaskParameter="OutOfDateSources" ItemName="_OutOfDateCopyFile"/>
+    </GetOutOfDateItems>
+
+    <Copy
+        SourceFiles="%(_OutOfDateCopyFile.FullPath)"
+        DestinationFiles="%(_OutOfDateCopyFile.FullDestinationPath)"
+        SkipUnchangedFiles="false"
+        OverwriteReadOnlyFiles="$(OverwriteReadOnlyFiles)"
+        Retries="$(CopyRetryCount)"
+        RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)"
+        UseHardlinksIfPossible="$(CreateHardLinksForCopyFilesToOutputDirectoryIfPossible)"
+        UseSymboliclinksIfPossible="$(CreateSymbolicLinksForCopyFilesToOutputDirectoryIfPossible)"
+        Condition="'@(_OutOfDateCopyFile)' != ''" />
+
+    <ItemGroup>
+      <_IncludeClCompileAbsolute Include="@(_CopyOutputFiles->'%(DestinationFolders)%(Filename).c')" />
+      <_ToExclude Include="%(ClCompile.Identity)" />
+      <ClCompile Include="$([MSBuild]::MakeRelative('$(MSBuildProjectDirectory)', '%(_IncludeClCompileAbsolute.Identity)'))" Exclude="@(_ToExclude)"/>
+      <ClInclude Include="$([MSBuild]::MakeRelative('$(MSBuildProjectDirectory)', '$(OutDir)inc\%(_CopyHeaderFiles.Filename).h'))"/>
+    </ItemGroup>
+  </Target>
+</Project>

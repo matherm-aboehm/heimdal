@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright, Microsoft Corporation, All rights reserved.-->
+<ProjectSchemaDefinitions xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+  <Rule Name="YACC" PageTemplate="tool" DisplayName="Grammar-Spezifikationen" SwitchPrefix="-" Order="10" SupportsFileBatching="false"
+        xmlns="http://schemas.microsoft.com/build/2009/properties">
+    <Rule.Categories>
+      <Category Name="General" DisplayName="Allgemein"/>
+      <!--Category Name="Optimization" DisplayName="Optimierung"/-->
+      <!--Category Name="Preprocessor" DisplayName="Präprozessor"/-->
+      <Category Name="Code Generation" DisplayName="Codegenerierung"/>
+      <!--Category Name="Language" DisplayName="Sprache"/-->
+      <!--Category Name="Precompiled Headers" DisplayName="Vorkompilierte Header"/-->
+      <Category Name="Output Files" DisplayName="Ausgabedateien"/>
+      <!--Category Name="Browse Information" DisplayName="Informationen durchsuchen"/-->
+      <!--Category Name="Advanced" DisplayName="Erweitert"/-->
+      <Category Name="All Options" DisplayName="Alle Optionen" Subtype="Search"/>
+      <Category Name="Command Line" DisplayName="Befehlszeile" Subtype="CommandLine"/>
+    </Rule.Categories>
+    <Rule.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="YaccFile" Label="" HasConfigurationCondition="true"/>
+    </Rule.DataSource>
+    <StringProperty Name="Inputs" Category="Command Line" IsRequired="true">
+      <StringProperty.DataSource>
+        <DataSource Persistence="ProjectFile" ItemType="YaccFile" SourceType="Item" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Subtype="file" Name="OutputFileName" DisplayName="Ausgabedateiname"
+                    Description="Gibt einen Namen an, der zum Überschreiben des Ausgabe-Standarddateinamens verwendet wird. Datei- und Verzeichnisname möglich.     (-o [Name])"
+                    Category="Output Files" Switch="o &quot;[value]&quot;">
+    </StringProperty>
+    <EnumProperty Name="GenerateHeaders" DisplayName="Headerdatei erzeugen"
+                  Description="Headerdatei erstellen : Aktiviert die Erstellung einer Headerdatei.     (-d, --defines[=Name])"
+                  Category="Output Files">
+      <EnumValue Name="Create" Switch="d" DisplayName="Erstellen"
+                 Description="Weist den Generator an, eine Headerdatei (y.tab.h) zu erstellen, die vom Parser-Code eingebunden wird.">
+      </EnumValue>
+      <!-- Include "=" in Switch value, because Separator isn't used in any way except for StringListProperty -->
+      <EnumValue Name="CreateFilename" Switch="defines=" SwitchPrefix="--" DisplayName="Erstellen mit Dateinamen"
+                 Description="Weist den Compiler an, eine Headerdatei mit dem angegeben Namen zu erstellen, die vom Parser-Code eingebunden wird.">
+        <Argument Property="HeaderFile" IsRequired="true"/>
+      </EnumValue>
+      <EnumValue Name="No" Switch="" IsDefault="true" DisplayName="Nicht erstellen" Description="Headerdatei wirden nicht verwendet. ">
+      </EnumValue>
+    </EnumProperty>
+    <StringProperty Subtype="file" Name="HeaderFile" DisplayName="Headerdatei"
+                    Description="Gibt den bei der Erstellung einer Headerdatei zu verwendenden Headerdateinamen an. (--defines[=Name])"
+                    Category="Output Files">
+    </StringProperty>
+    <BoolProperty Name="NoLines" DisplayName="Keine Zeilenangaben"
+                     Description="Don&apos;t put any #line preprocessor commands in the parser file."
+                     Category="Code Generation" Switch="l" />
+    <BoolProperty Name="Debug" DisplayName="Debug"
+                     Description="Output a definition of the macro YYDEBUG into the parser file, so that the debugging facilities are compiled."
+                     Category="Code Generation" Switch="t" />
+    <BoolProperty Name="Verbose" DisplayName="Verbose"
+                     Description="Write an extra output file containing verbose descriptions of the parser states and what is done for each type of look-ahead token in that state."
+                     Category="General" Switch="v" />
+    <StringProperty Name="ExecutionDescription" DisplayName="Execution Description" IncludeInCommandLine="False" Visible="False" />
+    <StringListProperty Name="AdditionalDependencies" DisplayName="Additional Dependencies"
+                        IncludeInCommandLine="False" Visible="False" />
+    <StringProperty Subtype="AdditionalOptions" Name="AdditionalOptions" DisplayName="Zusätzliche Optionen" Description="Zusätzliche Optionen." Category="Command Line">
+    </StringProperty>
+    <StringProperty Name="CommandLineTemplate" DisplayName="Command Line" Visible="False" IncludeInCommandLine="False" />
+  </Rule>
+  <Rule Name="LEX" PageTemplate="tool" DisplayName="Lex-Pattern" SwitchPrefix="-" Order="10" SupportsFileBatching="false"
+        xmlns="http://schemas.microsoft.com/build/2009/properties">
+    <Rule.Categories>
+      <Category Name="General" DisplayName="Allgemein"/>
+      <!--Category Name="Optimization" DisplayName="Optimierung"/-->
+      <!--Category Name="Preprocessor" DisplayName="Präprozessor"/-->
+      <Category Name="Code Generation" DisplayName="Codegenerierung"/>
+      <!--Category Name="Language" DisplayName="Sprache"/-->
+      <!--Category Name="Precompiled Headers" DisplayName="Vorkompilierte Header"/-->
+      <Category Name="Output Files" DisplayName="Ausgabedateien"/>
+      <!--Category Name="Browse Information" DisplayName="Informationen durchsuchen"/-->
+      <!--Category Name="Advanced" DisplayName="Erweitert"/-->
+      <Category Name="All Options" DisplayName="Alle Optionen" Subtype="Search"/>
+      <Category Name="Command Line" DisplayName="Befehlszeile" Subtype="CommandLine"/>
+    </Rule.Categories>
+    <Rule.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="LexFile" Label="" HasConfigurationCondition="true"/>
+    </Rule.DataSource>
+    <StringProperty Name="Inputs" Category="Command Line" IsRequired="true">
+      <StringProperty.DataSource>
+        <DataSource Persistence="ProjectFile" ItemType="LexFile" SourceType="Item" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Subtype="file" Name="OutputFileName" DisplayName="Ausgabedateiname"
+                    Description="Gibt einen Namen an, der zum Überschreiben des Ausgabe-Standarddateinamens verwendet wird. Datei- und Verzeichnisname möglich.     (-o[Name])"
+                    Category="Output Files" Switch="o&quot;[value]&quot;">
+    </StringProperty>
+    <EnumProperty Name="GenerateHeaders" DisplayName="Headerdatei erzeugen"
+                  Description="Headerdatei erstellen : Aktiviert die Erstellung einer Headerdatei.     (-h[Name], --header-file=Name)"
+                  Category="Output Files">
+      <EnumValue Name="Create" Switch="h" DisplayName="Erstellen"
+                 Description="Weist den Generator an, eine Headerdatei (lex.yy.h) zu erstellen, die vom Scanner-Code eingebunden wird. Nur flex++.">
+        <Argument Property="HeaderFile" IsRequired="false"/>
+      </EnumValue>
+      <!-- Include "=" in Switch value, because Separator isn't used in any way except for StringListProperty -->
+      <EnumValue Name="CreateFilename" Switch="header-file=" SwitchPrefix="--" DisplayName="Erstellen mit Dateinamen"
+                 Description="Weist den Compiler an, eine Headerdatei mit dem angegeben Namen zu erstellen, die vom Scanner-Code eingebunden wird.">
+        <Argument Property="HeaderFile" IsRequired="true"/>
+      </EnumValue>
+      <EnumValue Name="No" Switch="" IsDefault="true" DisplayName="Nicht erstellen" Description="Headerdatei wirden nicht verwendet. ">
+      </EnumValue>
+    </EnumProperty>
+    <StringProperty Subtype="file" Name="HeaderFile" DisplayName="Headerdatei"
+                    Description="Gibt den bei der Erstellung einer Headerdatei zu verwendenden Headerdateinamen an. (--header-file=Name)"
+                    Category="Output Files">
+    </StringProperty>
+    <StringProperty Name="IncludeFile" DisplayName="Includedatei"
+                    Description="Change the filename that flex++ put in the #include inside the code, when a separate header is generated."
+                    Category="Code Generation" Switch="g&quot;[value]&quot;" />
+    <BoolProperty Name="Debug" DisplayName="Debug"
+                     Description="Schalte Debug-Modus für den generierten Scanner ein"
+                     Category="Code Generation" Switch="d" />
+    <StringProperty Name="Prefix" DisplayName="Präfix"
+                    Description="use STRING as prefix instead of 'yy'"
+                    Category="Code Generation" Switch="P" />
+    <StringProperty Name="ExecutionDescription" DisplayName="Execution Description" IncludeInCommandLine="False" Visible="False" />
+    <StringListProperty Name="AdditionalDependencies" DisplayName="Additional Dependencies"
+                        IncludeInCommandLine="False" Visible="False" />
+    <StringProperty Subtype="AdditionalOptions" Name="AdditionalOptions" DisplayName="Zusätzliche Optionen" Description="Zusätzliche Optionen." Category="Command Line">
+    </StringProperty>
+    <StringProperty Name="CommandLineTemplate" DisplayName="Command Line" Visible="False" IncludeInCommandLine="False" />
+  </Rule>
+  <Rule Name="COMPILE_ET" PageTemplate="tool" DisplayName="ErrorTable" SwitchPrefix="-" Order="10" SupportsFileBatching="false"
+        xmlns="http://schemas.microsoft.com/build/2009/properties">
+    <Rule.Categories>
+      <Category Name="General" DisplayName="Allgemein"/>
+      <!--Category Name="Optimization" DisplayName="Optimierung"/-->
+      <!--Category Name="Preprocessor" DisplayName="Präprozessor"/-->
+      <!--Category Name="Code Generation" DisplayName="Codegenerierung"/-->
+      <!--Category Name="Language" DisplayName="Sprache"/-->
+      <!--Category Name="Precompiled Headers" DisplayName="Vorkompilierte Header"/-->
+      <Category Name="Output Files" DisplayName="Ausgabedateien"/>
+      <!--Category Name="Browse Information" DisplayName="Informationen durchsuchen"/-->
+      <!--Category Name="Advanced" DisplayName="Erweitert"/-->
+      <Category Name="All Options" DisplayName="Alle Optionen" Subtype="Search"/>
+      <Category Name="Command Line" DisplayName="Befehlszeile" Subtype="CommandLine"/>
+    </Rule.Categories>
+    <Rule.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="ErrorTable" Label="" HasConfigurationCondition="true"/>
+    </Rule.DataSource>
+    <StringProperty Name="Inputs" Category="Command Line" IsRequired="true">
+      <StringProperty.DataSource>
+        <DataSource Persistence="ProjectFile" ItemType="ErrorTable" SourceType="Item" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Subtype="folder" Name="ToolPath" DisplayName="Tool-Verzeichnis"
+                    Description="Gibt einen Namen an, der zum Überschreiben des Tool-Standardverzeichnisses verwendet wird."
+                    Category="General" IncludeInCommandLine="False">
+    </StringProperty>
+    <StringProperty Subtype="folder" Name="OutputDirectory" DisplayName="Ausgabeverzeichnis"
+                    Description="Gibt einen Namen an, der zum Überschreiben des Ausgabe-Standardverzeichnisses verwendet wird."
+                    Category="Output Files" IncludeInCommandLine="False">
+    </StringProperty>
+    <StringProperty Name="ExecutionDescription" DisplayName="Execution Description" IncludeInCommandLine="False" Visible="False" />
+    <StringListProperty Name="AdditionalDependencies" DisplayName="Additional Dependencies"
+                        IncludeInCommandLine="False" Visible="False" />
+    <StringProperty Subtype="AdditionalOptions" Name="AdditionalOptions" DisplayName="Zusätzliche Optionen" Description="Zusätzliche Optionen." Category="Command Line">
+    </StringProperty>
+    <StringProperty Name="CommandLineTemplate" DisplayName="Command Line" Visible="False" IncludeInCommandLine="False" />
+  </Rule>
+  <Rule Name="ASN1_COMPILE" PageTemplate="tool" DisplayName="ASN1-Codec" SwitchPrefix="--" Order="10" SupportsFileBatching="false"
+        xmlns="http://schemas.microsoft.com/build/2009/properties">
+    <Rule.Categories>
+      <Category Name="General" DisplayName="Allgemein"/>
+      <!--Category Name="Optimization" DisplayName="Optimierung"/-->
+      <!--Category Name="Preprocessor" DisplayName="Präprozessor"/-->
+      <Category Name="Code Generation" DisplayName="Codegenerierung"/>
+      <!--Category Name="Language" DisplayName="Sprache"/-->
+      <!--Category Name="Precompiled Headers" DisplayName="Vorkompilierte Header"/-->
+      <Category Name="Output Files" DisplayName="Ausgabedateien"/>
+      <!--Category Name="Browse Information" DisplayName="Informationen durchsuchen"/-->
+      <!--Category Name="Advanced" DisplayName="Erweitert"/-->
+      <Category Name="All Options" DisplayName="Alle Optionen" Subtype="Search"/>
+      <Category Name="Command Line" DisplayName="Befehlszeile" Subtype="CommandLine"/>
+    </Rule.Categories>
+    <Rule.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="ASN1File" Label="" HasConfigurationCondition="true"/>
+    </Rule.DataSource>
+    <StringProperty Name="Inputs" Category="Command Line" IsRequired="true">
+      <StringProperty.DataSource>
+        <DataSource Persistence="ProjectFile" ItemType="ASN1File" SourceType="Item" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty Subtype="folder" Name="ToolPath" DisplayName="Tool-Verzeichnis"
+                    Description="Gibt einen Namen an, der zum Überschreiben des Tool-Standardverzeichnisses verwendet wird."
+                    Category="General" IncludeInCommandLine="False">
+    </StringProperty>
+    <StringProperty Subtype="folder" Name="OutputDirectory" DisplayName="Ausgabeverzeichnis"
+                    Description="Gibt einen Namen an, der zum Überschreiben des Ausgabe-Standardverzeichnisses verwendet wird."
+                    Category="Output Files" IncludeInCommandLine="False">
+    </StringProperty>
+    <StringProperty Name="BaseName" DisplayName="Ausgabedateien-Basisnamen"
+                    Description="Gibt einen Basisnamen an, der zum Überschreiben der Ausgabe-Standarddateinamen verwendet wird."
+                    Category="Output Files" IncludeInCommandLine="False">
+    </StringProperty>
+    <BoolProperty Name="OneCodeFile" DisplayName="Einzelcode-Datei"
+                     Description="Schaltet die Ausgabe in eine einzelne Code-Datei ein."
+                     Category="Output Files" Switch="one-code-file" />
+    <StringListProperty Name="PreserveBinary" DisplayName="Binärdaten behalten"
+                        Category="Code Generation" Switch="preserve-binary=" />
+    <StringListProperty Name="Sequence" DisplayName="Sequenzen"
+                        Category="Code Generation" Switch="sequence=" />
+    <StringProperty Subtype="file" Name="OptionFile" DisplayName="Optionen-Datei"
+                        Category="Code Generation" Switch="option-file=" />
+    <StringProperty Name="ExecutionDescription" DisplayName="Execution Description" IncludeInCommandLine="False" Visible="False" />
+    <StringListProperty Name="AdditionalDependencies" DisplayName="Additional Dependencies"
+                        IncludeInCommandLine="False" Visible="False" />
+    <StringProperty Subtype="AdditionalOptions" Name="AdditionalOptions" DisplayName="Zusätzliche Optionen" Description="Zusätzliche Optionen." Category="Command Line">
+    </StringProperty>
+    <StringProperty Name="CommandLineTemplate" DisplayName="Command Line" Visible="False" IncludeInCommandLine="False" />
+  </Rule>
+  <ItemType
+    Name="YaccFile"
+    DisplayName="Grammar-Datei" />
+  <FileExtension
+    Name="*.y"
+    ContentType="YaccSpecs" />
+  <ContentType
+    Name="YaccSpecs"
+    DisplayName="Grammar-Spezifikationen"
+    ItemType="YaccFile" />
+  <ItemType
+    Name="LexFile"
+    DisplayName="Lex-Datei" />
+  <FileExtension
+    Name="*.l"
+    ContentType="LexPatterns" />
+  <ContentType
+    Name="LexPatterns"
+    DisplayName="Lex-Pattern"
+    ItemType="LexFile" />
+  <ItemType
+    Name="ErrorTable"
+    DisplayName="ErrorTable-Datei" />
+  <FileExtension
+    Name="*.et"
+    ContentType="ErrorTable" />
+  <ContentType
+    Name="ErrorTable"
+    DisplayName="ErrorTable"
+    ItemType="ErrorTable" />
+  <ItemType
+    Name="ASN1File"
+    DisplayName="ASN1-Codec-Datei" />
+  <FileExtension
+    Name="*.asn1"
+    ContentType="ASN1Codec" />
+  <ContentType
+    Name="ASN1Codec"
+    DisplayName="ASN1-Codec"
+    ItemType="ASN1File" />
+</ProjectSchemaDefinitions>

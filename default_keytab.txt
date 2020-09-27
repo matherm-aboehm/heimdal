@@ -1,0 +1,4 @@
+[libdefaults]
+	default_keytab_name = FILE:%{COMMONCONFIG}/krb5.keytab
+
+%{COMMON_APPDATA}/Kerberos/krb5.keytab

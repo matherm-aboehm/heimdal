@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VisualStudioToolFile
+	Name="Heimdal Tools"
+	Version="8,00"
+	>
+	<Rules>
+		<CustomBuildRule
+			Name="YACC"
+			DisplayName="YACC Parser Generator"
+			CommandLine="[Toolpath] [Debug] [Verbose] [Output] [Defines][HeaderOutput] [NoLines] [AdditionalOptions] [inputs]"
+			Outputs="[Output];[HeaderOutput]"
+			FileExtensions="*.y"
+			ExecutionDescription="Generate yacc parser for $(InputFileName)"
+			>
+			<Properties>
+				<BooleanProperty
+					Name="Debug"
+					DisplayName="Debug"
+					Description="Output a definition of the macro YYDEBUG into the parser file, so that the debugging facilities are compiled."
+					Switch="--debug"
+				/>
+				<StringProperty
+					Name="Output"
+					DisplayName="Ausgabedatei"
+					Category="Ausgaben"
+					Description="Datei, in die die Ausgabe geschrieben werden soll, anstatt &quot;lex.yy.c&quot;"
+					Switch="-o &quot;[value]&quot;"
+					DefaultValue="$(IntDir)$(InputName).c"
+				/>
+				<StringProperty
+					Name="Toolpath"
+					DisplayName="Verzeichnis zum Tool"
+					Description="Das Verzeichnis in dem das Tool ausgeführt werden soll."
+					Switch="[value]"
+					DefaultValue="$(YACC)"
+				/>
+				<BooleanProperty
+					Name="Verbose"
+					DisplayName="Verbose"
+					Description="Write an extra output file containing verbose descriptions of the parser states and what is done for each type of look-ahead token in that state."
+					Switch="--verbose"
+				/>
+				<BooleanProperty
+					Name="NoLines"
+					DisplayName="Keine Zeilenangaben"
+					Description="Don&apos;t put any #line preprocessor commands in the parser file."
+					Switch="--no-lines"
+				/>
+				<EnumProperty
+					Name="Defines"
+					DisplayName="Definitionenausgabe"
+					Category="Ausgaben"
+					Description="Write an extra output file containing macro definitions for the token type names defined in the grammar and the semantic value type YYSTYPE, as well as a few extern variable declarations."
+					>
+					<Values>
+            <EnumValue
+							Value="0"
+							Switch=""
+							DisplayName="Nicht erstellen"
+						/>
+						<EnumValue
+							Value="1"
+							Switch="-d"
+							DisplayName="Erstellen"
+						/>
+            <EnumValue
+							Value="2"
+							Switch="--defines="
+							DisplayName="Erstellen mit Dateinamen"
+						/>
+          </Values>
+				</EnumProperty>
+        <StringProperty
+					Name="HeaderOutput"
+					DisplayName="Headerdateiname"
+					Category="Ausgaben"
+					Description="Schreibt die Header-Ausgabe in die angegebene Datei; wenn nicht angegeben &quot;lex.yy.h&quot; oder &quot;[OutputFilename].h&quot;"
+					Switch="&quot;[value]&quot;"
+					DefaultValue="$(IntDir)$(InputName).h"
+				/>
+      </Properties>
+		</CustomBuildRule>
+		<CustomBuildRule
+			Name="LEX"
+			DisplayName="Lexical Scanner Generator"
+			CommandLine="[Toolpath] [Debug] [Output] [IncludeFile] [HeaderOutput] [AdditionalOptions] [inputs]"
+			Outputs="[Output];[HeaderOutput]"
+			FileExtensions="*.l"
+			ExecutionDescription="Generate lexical scanner for $(InputFileName)"
+			>
+			<Properties>
+				<BooleanProperty
+					Name="Debug"
+					DisplayName="Debug"
+					Description="Schalte Debug-Modus für den generierten Scanner ein"
+					Switch="-d"
+				/>
+				<StringProperty
+					Name="Output"
+					DisplayName="Ausgabedatei"
+					Category="Ausgaben"
+					Description="Datei, in die die Ausgabe geschrieben werden soll, anstatt &quot;lex.yy.c&quot;"
+					Switch="-o&quot;[value]&quot;"
+					DefaultValue="$(InputDir)$(InputName).cpp"
+				/>
+				<StringProperty
+					Name="Toolpath"
+					DisplayName="Verzeichnis zum Tool"
+					Description="Das Verzeichnis in dem das Tool ausgeführt werden soll."
+					Switch="[value]"
+					DefaultValue="$(LEX)"
+				/>
+				<StringProperty
+					Name="HeaderOutput"
+					DisplayName="Headerdateiname"
+					Category="Ausgaben"
+					Description="Schreibt die Header-Ausgabe in die angegebene Datei; wenn nicht angegeben &quot;lex.yy.h&quot; oder &quot;[Output_Filename].h&quot;"
+					Switch="-h&quot;[value]&quot;"
+					DefaultValue="$(InputDir)$(InputName).h"
+				/>
+				<StringProperty
+					Name="IncludeFile"
+					DisplayName="Includedatei"
+					Description="Change the filename that flex++ put in the #include inside the code, when a separate header is generated."
+					Switch="-g&quot;[value]&quot;"
+				/>
+			</Properties>
+		</CustomBuildRule>
+	</Rules>
+</VisualStudioToolFile>

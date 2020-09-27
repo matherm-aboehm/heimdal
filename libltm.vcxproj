@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{64251860-4965-438B-A973-28FC0BE4F537}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\hcrypto\libtommath\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\hcrypto\libtommath\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\hcrypto\libtommath\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\hcrypto\libtommath\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="lib\hcrypto\libtommath\bncore.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_error.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_fast_mp_invmod.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_fast_mp_montgomery_reduce.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_fast_s_mp_mul_digs.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_fast_s_mp_mul_high_digs.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_fast_s_mp_sqr.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_2expt.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_abs.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_add.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_addmod.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_add_d.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_and.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_clamp.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_clear.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_clear_multi.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_cmp.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_cmp_d.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_cmp_mag.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_cnt_lsb.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_copy.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_count_bits.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_div.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_div_2.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_div_2d.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_div_3.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_div_d.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_dr_is_modulus.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_dr_reduce.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_dr_setup.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_exch.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_exptmod.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_exptmod_fast.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_expt_d.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_exteuclid.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_find_prime.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_fread.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_fwrite.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_gcd.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_get_int.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_grow.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_init.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_init_copy.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_init_multi.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_init_set.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_init_set_int.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_init_size.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_invmod.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_invmod_slow.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_is_square.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_jacobi.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_karatsuba_mul.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_karatsuba_sqr.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_lcm.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_lshd.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_mod.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_mod_2d.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_mod_d.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_montgomery_calc_normalization.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_montgomery_reduce.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_montgomery_setup.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_mul.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_mulmod.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_mul_2.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_mul_2d.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_mul_d.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_neg.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_n_root.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_or.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_prime_fermat.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_prime_is_divisible.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_prime_is_prime.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_prime_miller_rabin.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_prime_next_prime.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_prime_rabin_miller_trials.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_prime_random_ex.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_radix_size.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_radix_smap.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_rand.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_read_radix.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_read_signed_bin.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_read_unsigned_bin.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_reduce.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_reduce_2k.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_reduce_2k_l.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_reduce_2k_setup.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_reduce_2k_setup_l.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_reduce_is_2k.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_reduce_is_2k_l.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_reduce_setup.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_rshd.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_set.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_set_int.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_shrink.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_signed_bin_size.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_sqr.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_sqrmod.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_sqrt.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_sub.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_submod.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_sub_d.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_toom_mul.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_toom_sqr.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_toradix.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_toradix_n.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_to_signed_bin.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_to_signed_bin_n.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_to_unsigned_bin.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_to_unsigned_bin_n.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_unsigned_bin_size.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_xor.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_zero.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_mp_zero_multi.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_prime_tab.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_reverse.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_s_mp_add.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_s_mp_exptmod.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_s_mp_mul_digs.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_s_mp_mul_high_digs.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_s_mp_sqr.c" />
+    <ClCompile Include="lib\hcrypto\libtommath\bn_s_mp_sub.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\hcrypto\libtommath\tommath.h" />
+    <ClInclude Include="lib\hcrypto\libtommath\tommath_class.h" />
+    <ClInclude Include="lib\hcrypto\libtommath\tommath_superclass.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

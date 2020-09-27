@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Generierte Dateien">
+      <UniqueIdentifier>{a3d89304-5265-4802-9049-9ea722ce5b00}</UniqueIdentifier>
+      <Extensions>et;asn1;x;hx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lib\asn1\der.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\asn1\der_get.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\asn1\der_put.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\asn1\der_free.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\asn1\der_length.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\asn1\der_copy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\asn1\der_cmp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\asn1\der_format.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\asn1\extra.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\asn1\timegm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)asn1_*_asn1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)asn1_rfc2459_asn1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)asn1_cms_asn1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)asn1_digest_asn1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)asn1_krb5_asn1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)asn1_kx509_asn1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)asn1_pkcs8_asn1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)asn1_pkcs9_asn1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)asn1_pkcs12_asn1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(IntDir)asn1_pkinit_asn1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\asn1\der_locl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\asn1\der.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\asn1\heim_asn1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(OutDir)inc\*_asn1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(OutDir)inc\rfc2459_asn1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(OutDir)inc\cms_asn1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(OutDir)inc\digest_asn1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(OutDir)inc\krb5_asn1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(OutDir)inc\kx509_asn1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(OutDir)inc\pkcs8_asn1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(OutDir)inc\pkcs9_asn1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(OutDir)inc\pkcs12_asn1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(OutDir)inc\pkinit_asn1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(IntDir)asn1_err.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\asn1\asn1-common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\asn1\asn1-template.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x">
+      <Filter>Generierte Dateien</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx">
+      <Filter>Generierte Dateien</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)asn1_*_asn1.x" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+    <CopyFileToFolders Include="$(IntDir)*_asn1.hx" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="lib\asn1\cms.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\digest.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\krb5.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\kx509.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\pkcs12.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\pkcs8.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\pkcs9.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\pkinit.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\pku2u.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\rfc2459.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\setchgpw2.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\test.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="lib\asn1\*.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="$(IntDir)der-private.h">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="$(IntDir)der-protos.h">
+      <Filter>Generierte Dateien</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ErrorTable Include="lib\asn1\asn1_err.et">
+      <Filter>Generierte Dateien</Filter>
+    </ErrorTable>
+  </ItemGroup>
+  <ItemGroup>
+    <ASN1File Include="lib\asn1\cms.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\krb5.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\rfc2459.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\cms.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\digest.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\krb5.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\kx509.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs12.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs8.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs9.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkinit.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\rfc2459.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\cms.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\digest.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\krb5.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\kx509.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs12.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs8.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs9.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkinit.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\rfc2459.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\cms.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\digest.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\krb5.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\kx509.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs12.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs8.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs9.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkinit.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\rfc2459.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\cms.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\digest.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\krb5.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\kx509.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs12.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs8.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs9.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkinit.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\rfc2459.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\cms.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\digest.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\krb5.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\kx509.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs12.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs8.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs9.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkinit.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\rfc2459.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\cms.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\digest.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\krb5.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\kx509.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs12.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs8.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs9.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkinit.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\rfc2459.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\cms.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\digest.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\krb5.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\kx509.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs12.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs8.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs9.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkinit.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\rfc2459.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\cms.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\digest.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\krb5.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\kx509.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs12.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs8.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs9.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkinit.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\rfc2459.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\cms.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\digest.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\krb5.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\kx509.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs12.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs8.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs9.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkinit.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\rfc2459.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\cms.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\digest.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\krb5.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\kx509.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs12.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs8.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs9.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkinit.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\rfc2459.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\test.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkinit.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs8.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs9.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\pkcs12.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\digest.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\kx509.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\test.asn1">
+      <Filter>Generierte Dateien</Filter>
+    </ASN1File>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\asn1\libasn1-exports.def">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

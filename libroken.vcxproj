@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{241D9C80-E6BE-418F-922A-9F8FEE086A8F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\roken\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\roken\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\roken\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\roken\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;BUILD_ROKEN_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;BUILD_ROKEN_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;BUILD_ROKEN_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;BUILD_ROKEN_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="lib\roken\base64.c" />
+    <ClCompile Include="lib\roken\bswap.c" />
+    <ClCompile Include="lib\roken\cloexec.c" />
+    <ClCompile Include="lib\roken\concat.c" />
+    <ClCompile Include="lib\roken\ct.c" />
+    <ClCompile Include="lib\roken\detach.c" />
+    <ClCompile Include="lib\roken\dirent.c" />
+    <ClCompile Include="lib\roken\dlfcn_w32.c" />
+    <ClCompile Include="lib\roken\dumpdata.c" />
+    <ClCompile Include="lib\roken\ecalloc.c" />
+    <ClCompile Include="lib\roken\emalloc.c" />
+    <ClCompile Include="lib\roken\environment.c" />
+    <ClCompile Include="lib\roken\eread.c" />
+    <ClCompile Include="lib\roken\erealloc.c" />
+    <ClCompile Include="lib\roken\err.c" />
+    <ClCompile Include="lib\roken\errx.c" />
+    <ClCompile Include="lib\roken\esetenv.c" />
+    <ClCompile Include="lib\roken\estrdup.c" />
+    <ClCompile Include="lib\roken\ewrite.c" />
+    <ClCompile Include="lib\roken\flock.c" />
+    <ClCompile Include="lib\roken\fnmatch.c" />
+    <ClCompile Include="lib\roken\getaddrinfo_hostspec.c" />
+    <ClCompile Include="lib\roken\getarg.c" />
+    <ClCompile Include="lib\roken\getifaddrs_w32.c" />
+    <ClCompile Include="lib\roken\getnameinfo_verified.c" />
+    <ClCompile Include="lib\roken\getopt.c" />
+    <ClCompile Include="lib\roken\getprogname.c" />
+    <ClCompile Include="lib\roken\gettimeofday.c" />
+    <ClCompile Include="lib\roken\get_default_username.c" />
+    <ClCompile Include="lib\roken\get_window_size.c" />
+    <ClCompile Include="lib\roken\hex.c" />
+    <ClCompile Include="lib\roken\hostent_find_fqdn.c" />
+    <ClCompile Include="lib\roken\inet_aton.c" />
+    <ClCompile Include="lib\roken\inet_ntop.c" />
+    <ClCompile Include="lib\roken\inet_pton.c" />
+    <ClCompile Include="lib\roken\issuid.c" />
+    <ClCompile Include="lib\roken\localtime_r.c" />
+    <ClCompile Include="lib\roken\lstat.c" />
+    <ClCompile Include="lib\roken\memset_s.c" />
+    <ClCompile Include="lib\roken\mini_inetd.c" />
+    <ClCompile Include="lib\roken\mkdir.c" />
+    <ClCompile Include="lib\roken\mkstemp.c" />
+    <ClCompile Include="lib\roken\net_read.c" />
+    <ClCompile Include="lib\roken\net_write.c" />
+    <ClCompile Include="lib\roken\parse_bytes.c" />
+    <ClCompile Include="lib\roken\parse_time.c" />
+    <ClCompile Include="lib\roken\parse_units.c" />
+    <ClCompile Include="lib\roken\rand.c" />
+    <ClCompile Include="lib\roken\realloc.c" />
+    <ClCompile Include="lib\roken\rename.c" />
+    <ClCompile Include="lib\roken\resolve.c" />
+    <ClCompile Include="lib\roken\roken_gethostby.c" />
+    <ClCompile Include="lib\roken\rtbl.c" />
+    <ClCompile Include="lib\roken\sendmsg.c" />
+    <ClCompile Include="lib\roken\setenv.c" />
+    <ClCompile Include="lib\roken\setprogname.c" />
+    <ClCompile Include="lib\roken\simple_exec_w32.c" />
+    <ClCompile Include="lib\roken\sleep.c" />
+    <ClCompile Include="lib\roken\snprintf.c" />
+    <ClCompile Include="lib\roken\socket.c" />
+    <ClCompile Include="lib\roken\sockstartup_w32.c" />
+    <ClCompile Include="lib\roken\strcollect.c" />
+    <ClCompile Include="lib\roken\strerror_r.c" />
+    <ClCompile Include="lib\roken\strlcat.c" />
+    <ClCompile Include="lib\roken\strlcpy.c" />
+    <ClCompile Include="lib\roken\strndup.c" />
+    <ClCompile Include="lib\roken\strpool.c" />
+    <ClCompile Include="lib\roken\strptime.c" />
+    <ClCompile Include="lib\roken\strsep.c" />
+    <ClCompile Include="lib\roken\strsep_copy.c" />
+    <ClCompile Include="lib\roken\strtok_r.c" />
+    <ClCompile Include="lib\roken\strtoll.c" />
+    <ClCompile Include="lib\roken\strtoull.c" />
+    <ClCompile Include="lib\roken\syslogc.c" />
+    <ClCompile Include="lib\roken\timegm.c" />
+    <ClCompile Include="lib\roken\timeval.c" />
+    <ClCompile Include="lib\roken\tm2time.c" />
+    <ClCompile Include="lib\roken\tsearch.c" />
+    <ClCompile Include="lib\roken\unvis.c" />
+    <ClCompile Include="lib\roken\verr.c" />
+    <ClCompile Include="lib\roken\verrx.c" />
+    <ClCompile Include="lib\roken\vis.c" />
+    <ClCompile Include="lib\roken\vwarn.c" />
+    <ClCompile Include="lib\roken\vwarnx.c" />
+    <ClCompile Include="lib\roken\warn.c" />
+    <ClCompile Include="lib\roken\warnerr.c" />
+    <ClCompile Include="lib\roken\warnx.c" />
+    <ClCompile Include="lib\roken\win32_alloc.c" />
+    <ClCompile Include="lib\roken\writev.c" />
+    <ClCompile Include="lib\roken\xfree.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\roken\base64.h" />
+    <ClInclude Include="lib\roken\getarg.h" />
+    <ClInclude Include="lib\roken\hex.h" />
+    <ClInclude Include="lib\roken\ndbm_wrap.h" />
+    <ClInclude Include="lib\roken\parse_bytes.h" />
+    <ClInclude Include="lib\roken\parse_time.h" />
+    <ClInclude Include="lib\roken\parse_units.h" />
+    <ClInclude Include="lib\roken\resolve.h" />
+    <ClInclude Include="lib\roken\roken-common.h" />
+    <ClInclude Include="lib\roken\rtbl.h" />
+    <ClInclude Include="lib\roken\socket_wrapper.h" />
+    <ClInclude Include="lib\roken\strpftime-test.h" />
+    <ClInclude Include="lib\roken\test-mem.h" />
+    <ClInclude Include="lib\roken\xdbm.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

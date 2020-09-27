@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lib\asn1\der.c" />
+    <ClCompile Include="lib\asn1\der_cmp.c" />
+    <ClCompile Include="lib\asn1\der_copy.c" />
+    <ClCompile Include="lib\asn1\der_format.c" />
+    <ClCompile Include="lib\asn1\der_free.c" />
+    <ClCompile Include="lib\asn1\der_get.c" />
+    <ClCompile Include="lib\asn1\der_length.c" />
+    <ClCompile Include="lib\asn1\der_put.c" />
+    <ClCompile Include="lib\asn1\extra.c" />
+    <ClCompile Include="lib\asn1\timegm.c" />
+    <ClCompile Include="$(IntDir)asn1_cms_asn1.c" />
+    <ClCompile Include="$(IntDir)asn1_digest_asn1.c" />
+    <ClCompile Include="$(IntDir)asn1_krb5_asn1.c" />
+    <ClCompile Include="$(IntDir)asn1_kx509_asn1.c" />
+    <ClCompile Include="$(IntDir)asn1_pkcs12_asn1.c" />
+    <ClCompile Include="$(IntDir)asn1_pkcs8_asn1.c" />
+    <ClCompile Include="$(IntDir)asn1_pkcs9_asn1.c" />
+    <ClCompile Include="$(IntDir)asn1_pkinit_asn1.c" />
+    <ClCompile Include="$(IntDir)asn1_rfc2459_asn1.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\asn1\asn1-common.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\asn1\asn1-template.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\asn1\der.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\asn1\der_locl.h" />
+    <ClInclude Include="lib\asn1\heim_asn1.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="$(IntDir)asn1_err.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="$(OutDir)inc\cms_asn1.h" />
+    <ClInclude Include="$(OutDir)inc\digest_asn1.h" />
+    <ClInclude Include="$(OutDir)inc\krb5_asn1.h" />
+    <ClInclude Include="$(OutDir)inc\kx509_asn1.h" />
+    <ClInclude Include="$(OutDir)inc\pkcs12_asn1.h" />
+    <ClInclude Include="$(OutDir)inc\pkcs8_asn1.h" />
+    <ClInclude Include="$(OutDir)inc\pkcs9_asn1.h" />
+    <ClInclude Include="$(OutDir)inc\pkinit_asn1.h" />
+    <ClInclude Include="$(OutDir)inc\rfc2459_asn1.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ErrorTable Include="lib\asn1\asn1_err.et" />
+  </ItemGroup>
+  <ItemGroup>
+    <ASN1File Include="lib\asn1\cms.asn1">
+      <OptionFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(RelativeDir)'))%(Filename).opt</OptionFile>
+      <OptionFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(RelativeDir)'))%(Filename).opt</OptionFile>
+      <OptionFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(RelativeDir)'))%(Filename).opt</OptionFile>
+      <OptionFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(RelativeDir)'))%(Filename).opt</OptionFile>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\digest.asn1" />
+    <ASN1File Include="lib\asn1\krb5.asn1">
+      <OptionFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(RelativeDir)'))%(Filename).opt</OptionFile>
+      <OptionFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(RelativeDir)'))%(Filename).opt</OptionFile>
+      <OptionFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(RelativeDir)'))%(Filename).opt</OptionFile>
+      <OptionFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '%(RelativeDir)'))%(Filename).opt</OptionFile>
+    </ASN1File>
+    <ASN1File Include="lib\asn1\kx509.asn1" />
+    <ASN1File Include="lib\asn1\pkcs12.asn1" />
+    <ASN1File Include="lib\asn1\pkcs8.asn1" />
+    <ASN1File Include="lib\asn1\pkcs9.asn1" />
+    <ASN1File Include="lib\asn1\pkinit.asn1" />
+    <ASN1File Include="lib\asn1\rfc2459.asn1">
+      <Sequence Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">GeneralNames;Extensions;CRLDistributionPoints;%(Sequence)</Sequence>
+      <Sequence Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">GeneralNames;Extensions;CRLDistributionPoints;%(Sequence)</Sequence>
+      <Sequence Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">GeneralNames;Extensions;CRLDistributionPoints;%(Sequence)</Sequence>
+      <Sequence Condition="'$(Configuration)|$(Platform)'=='Release|x64'">GeneralNames;Extensions;CRLDistributionPoints;%(Sequence)</Sequence>
+      <PreserveBinary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TBSCertificate;TBSCRLCertList;Name;%(PreserveBinary)</PreserveBinary>
+      <PreserveBinary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TBSCertificate;TBSCRLCertList;Name;%(PreserveBinary)</PreserveBinary>
+      <PreserveBinary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TBSCertificate;TBSCRLCertList;Name;%(PreserveBinary)</PreserveBinary>
+      <PreserveBinary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TBSCertificate;TBSCRLCertList;Name;%(PreserveBinary)</PreserveBinary>
+    </ASN1File>
+  </ItemGroup>
+  <ItemGroup>
+    <_ProtoSources Include="lib\asn1\der_locl.h;lib\asn1\der.c;lib\asn1\der.h;lib\asn1\der_get.c;lib\asn1\der_put.c;lib\asn1\der_free.c;lib\asn1\der_length.c;lib\asn1\der_copy.c;lib\asn1\der_cmp.c;lib\asn1\der_format.c;lib\asn1\heim_asn1.h;lib\asn1\extra.c;lib\asn1\timegm.c;" />
+    <CustomBuild Include="$(IntDir)der-protos.h">
+      <Message>Generate prototype header...</Message>
+      <AdditionalInputs>@(_ProtoSources);%(AdditionalInputs)</AdditionalInputs>
+      <Outputs>%(Identity);%(Outputs)</Outputs>
+      <TreatOutputAsContent>true</TreatOutputAsContent>
+      <RootFolder>$(OutDir)inc\</RootFolder>
+      <OutputItemType>ClInclude</OutputItemType>
+      <BuildInParallel>true</BuildInParallel>
+      <Command>$(PERL) "$(SolutionDir)cf\make-proto.pl" -q -P remove -o %(Identity) @(_ProtoSources->'%(Identity)', ' ')
+      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(PERL) "$(SolutionDir)cf\make-proto.pl" -q -P remove -o %(Identity) @(_ProtoSources->'%(Identity)', ' ')</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(PERL) "$(SolutionDir)cf\make-proto.pl" -q -P remove -o %(Identity) @(_ProtoSources->'%(Identity)', ' ')</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(PERL) "$(SolutionDir)cf\make-proto.pl" -q -P remove -o %(Identity) @(_ProtoSources->'%(Identity)', ' ')</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(PERL) "$(SolutionDir)cf\make-proto.pl" -q -P remove -o %(Identity) @(_ProtoSources->'%(Identity)', ' ')</Command>
+    </CustomBuild>
+    <CustomBuild Include="$(IntDir)der-private.h">
+      <Message>Generate private prototype header...</Message>
+      <AdditionalInputs>@(_ProtoSources);%(AdditionalInputs)</AdditionalInputs>
+      <Outputs>%(Identity);%(Outputs)</Outputs>
+      <TreatOutputAsContent>true</TreatOutputAsContent>
+      <RootFolder>$(OutDir)inc\</RootFolder>
+      <OutputItemType>ClInclude</OutputItemType>
+      <BuildInParallel>true</BuildInParallel>
+      <Command>$(PERL) "$(SolutionDir)cf\make-proto.pl" -q -P remove -p %(Identity) @(_ProtoSources->'%(Identity)', ' ')
+      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(PERL) "$(SolutionDir)cf\make-proto.pl" -q -P remove -p %(Identity) @(_ProtoSources->'%(Identity)', ' ')</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(PERL) "$(SolutionDir)cf\make-proto.pl" -q -P remove -p %(Identity) @(_ProtoSources->'%(Identity)', ' ')</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(PERL) "$(SolutionDir)cf\make-proto.pl" -q -P remove -p %(Identity) @(_ProtoSources->'%(Identity)', ' ')</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(PERL) "$(SolutionDir)cf\make-proto.pl" -q -P remove -p %(Identity) @(_ProtoSources->'%(Identity)', ' ')</Command>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\asn1\libasn1-exports.def" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{3B63B346-FB69-423C-B4E4-EF51595A5CD8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="heimdal.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\asn1\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\asn1\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\asn1\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\asn1\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>lib\asn1;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>lib\asn1;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+    <ClCompile>
+      <AdditionalIncludeDirectories>lib\asn1;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+    <ClCompile>
+      <AdditionalIncludeDirectories>lib\asn1;$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="heimdal.targets" />
+  </ImportGroup>
+</Project>

@@ -546,3 +546,7 @@ asn1_*.[cx]
 /tools/krb5-gssapi.pc
 /tools/krb5.pc
 /tools/krb5-config
+
+# Visual Studio 2015 cache/options directory
+.vs/
+/lib/wind/__pycache__

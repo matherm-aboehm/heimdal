@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <YACC Condition="'$(YACC)' == ''">yacc.exe</YACC>
+    <LEX Condition="'$(LEX)' == ''">lex.exe</LEX>
+  </PropertyGroup>
+  <PropertyGroup
+    Condition="'$(YACCBeforeTargets)' == '' and '$(YACCAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <YACCBeforeTargets>Midl</YACCBeforeTargets>
+    <YACCAfterTargets>CustomBuild</YACCAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup
+    Condition="'$(LEXBeforeTargets)' == '' and '$(LEXAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <LEXBeforeTargets>Midl</LEXBeforeTargets>
+    <LEXAfterTargets>CustomBuild</LEXAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup
+    Condition="'$(COMPILE_ETBeforeTargets)' == '' and '$(COMPILE_ETAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <COMPILE_ETBeforeTargets>Midl</COMPILE_ETBeforeTargets>
+    <COMPILE_ETAfterTargets>CustomBuild</COMPILE_ETAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup
+    Condition="'$(ASN1_COMPILEBeforeTargets)' == '' and '$(ASN1_COMPILEAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <ASN1_COMPILEBeforeTargets>Midl</ASN1_COMPILEBeforeTargets>
+    <ASN1_COMPILEAfterTargets>CustomBuild</ASN1_COMPILEAfterTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <YaccFile>
+      <OutputFileName>$(IntDir)%(FileName).c</OutputFileName>
+      <GenerateHeaders>No</GenerateHeaders>
+      <HeaderFile>$(IntDir)%(Filename).h</HeaderFile>
+      <NoLines>false</NoLines>
+      <Debug>false</Debug>
+      <Verbose>false</Verbose>
+      <CommandLineTemplate>$(YACC) [AllOptions] [AdditionalOptions] [Inputs]</CommandLineTemplate>
+      <ExecutionDescription>Generate yacc parser for %(Identity)...</ExecutionDescription>
+    </YaccFile>
+    <LexFile>
+      <OutputFileName>$(IntDir)%(FileName).c</OutputFileName>
+      <GenerateHeaders>No</GenerateHeaders>
+      <HeaderFile>$(IntDir)%(Filename).h</HeaderFile>
+      <Debug>false</Debug>
+      <IncludeFile></IncludeFile>
+      <CommandLineTemplate>$(LEX) [AllOptions] [AdditionalOptions] [Inputs]</CommandLineTemplate>
+      <ExecutionDescription>Generate lexical scanner for %(Identity)...</ExecutionDescription>
+    </LexFile>
+    <ErrorTable>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <ToolPath>$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '$(OutDir)bin\'))</ToolPath>
+      <CommandLineTemplate>cd "[OutputDirectory]"
+"[ToolPath]compile_et.exe" [AllOptions] [AdditionalOptions] [Inputs]
+cd "$(MSBuildProjectDirectory)"</CommandLineTemplate>
+      <ExecutionDescription>Generate error table for %(Identity)...</ExecutionDescription>
+    </ErrorTable>
+    <ASN1File>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <BaseName>%(Filename)_asn1</BaseName>
+      <ToolPath>$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '$(OutDir)bin\'))</ToolPath>
+      <OneCodeFile>true</OneCodeFile>
+      <CommandLineTemplate>cd "[OutputDirectory]"
+"[ToolPath]asn1_compile.exe" [AllOptions] [AdditionalOptions] [Inputs] [BaseName]
+cd "$(MSBuildProjectDirectory)"</CommandLineTemplate>
+      <ExecutionDescription>Generate ASN1-Codec for %(Identity)...</ExecutionDescription>
+    </ASN1File>
+  </ItemDefinitionGroup>
+</Project>

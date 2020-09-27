@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{43542F04-79E4-4DE5-8917-8B4F3D21192B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\hcrypto\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\hcrypto\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\hcrypto\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>out\obj_$(CPU)\lib\hcrypto\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;KRB5;ASN1_LIB;USE_HCRYPTO_LTM=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(OutDir)inc\hcrypto;lib\hx509;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;KRB5;ASN1_LIB;USE_HCRYPTO_LTM=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(OutDir)inc\hcrypto;lib\hx509;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)inc\hcrypto;lib\hx509;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;KRB5;ASN1_LIB;USE_HCRYPTO_LTM=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Lib>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+      <SubSystem>Console</SubSystem>
+    </Lib>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(OutDir)inc\hcrypto;lib\hx509;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;KRB5;ASN1_LIB;USE_HCRYPTO_LTM=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="lib\hcrypto\aes.c" />
+    <ClCompile Include="lib\hcrypto\bn.c" />
+    <ClCompile Include="lib\hcrypto\camellia-ntt.c" />
+    <ClCompile Include="lib\hcrypto\camellia.c" />
+    <ClCompile Include="lib\hcrypto\common.c" />
+    <ClCompile Include="lib\hcrypto\des.c" />
+    <ClCompile Include="lib\hcrypto\dh-ltm.c" />
+    <ClCompile Include="lib\hcrypto\dh-tfm.c" />
+    <ClCompile Include="lib\hcrypto\dh.c" />
+    <ClCompile Include="lib\hcrypto\dsa.c" />
+    <ClCompile Include="lib\hcrypto\engine.c" />
+    <ClCompile Include="lib\hcrypto\evp-cc.c" />
+    <ClCompile Include="lib\hcrypto\evp-hcrypto.c" />
+    <ClCompile Include="lib\hcrypto\evp-openssl.c" />
+    <ClCompile Include="lib\hcrypto\evp-pkcs11.c" />
+    <ClCompile Include="lib\hcrypto\evp-w32.c" />
+    <ClCompile Include="lib\hcrypto\evp-wincng.c" />
+    <ClCompile Include="lib\hcrypto\evp.c" />
+    <ClCompile Include="lib\hcrypto\hmac.c" />
+    <ClCompile Include="lib\hcrypto\md2.c" />
+    <ClCompile Include="lib\hcrypto\md4.c" />
+    <ClCompile Include="lib\hcrypto\md5.c" />
+    <ClCompile Include="lib\hcrypto\pkcs12.c" />
+    <ClCompile Include="lib\hcrypto\pkcs5.c" />
+    <ClCompile Include="lib\hcrypto\rand-w32.c" />
+    <ClCompile Include="lib\hcrypto\rand.c" />
+    <ClCompile Include="lib\hcrypto\rc2.c" />
+    <ClCompile Include="lib\hcrypto\rc4.c" />
+    <ClCompile Include="lib\hcrypto\rctest.c" />
+    <ClCompile Include="lib\hcrypto\rijndael-alg-fst.c" />
+    <ClCompile Include="lib\hcrypto\rnd_keys.c" />
+    <ClCompile Include="lib\hcrypto\rsa-gmp.c" />
+    <ClCompile Include="lib\hcrypto\rsa-ltm.c" />
+    <ClCompile Include="lib\hcrypto\rsa-tfm.c" />
+    <ClCompile Include="lib\hcrypto\rsa.c" />
+    <ClCompile Include="lib\hcrypto\sha.c" />
+    <ClCompile Include="lib\hcrypto\sha256.c" />
+    <ClCompile Include="lib\hcrypto\sha512.c" />
+    <ClCompile Include="lib\hcrypto\ui.c" />
+    <ClCompile Include="lib\hcrypto\validate.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lib\hcrypto\libhcrypto-exports.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\hcrypto\aes.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\bn.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\des.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\dh.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\dsa.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\ec.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\ecdh.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\ecdsa.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\engine.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\evp-cc.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\evp-hcrypto.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\evp-openssl.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\evp-pkcs11.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\evp-w32.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\evp-wincng.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\evp.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\hmac.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\md2.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\md4.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\md5.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\pkcs12.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\rand.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\randi.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\rc2.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\rc4.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\rsa.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\sha.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\ui.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+    <ClInclude Include="lib\hcrypto\undef.h">
+      <DeploymentContent>true</DeploymentContent>
+      <RootFolder>$(OutDir)inc\hcrypto\</RootFolder>
+    </ClInclude>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

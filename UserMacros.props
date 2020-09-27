@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <PSDKDir>$(WindowsSDKDir)</PSDKDir>
+    <WIXDIR>$(WIX)</WIXDIR>
+    <CODESIGN_PKT>0000000000000000</CODESIGN_PKT>
+    <CPU Condition="'$(Platform)'=='x64'">$(PROCESSOR_ARCHITEW6432)</CPU>
+    <CPU Condition="'$(CPU)'==''">$(PROCESSOR_ARCHITECTURE)</CPU>
+    <APPVER Condition="'$(Platform)'=='Win32'">5.01</APPVER>
+    <APPVER Condition="'$(Platform)'=='x64'">5.02</APPVER>
+    <YACC>bison.exe -y</YACC>
+    <LEX>flex.exe</LEX>
+    <PERL>perl.exe</PERL>
+    <PYTHON>python.exe</PYTHON>
+    <ExecutablePath>$(ExecutablePath);d:\cygwin64\bin;$(WIX)bin</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;HAVE_CONFIG_H;HCRYPTO_DEF_PROVIDER=w32crypto;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(OutDir)inc;$(OutDir)inc\krb5;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4127;4244;4100;4706;4214;4267;4018;4389;4204;4221;4295;4146</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(OutDir)inc;$(OutDir)inc\krb5;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>ws2_32.lib;mswsock.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="PSDKDir">
+      <Value>$(PSDKDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="WIXDIR">
+      <Value>$(WIXDIR)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="CODESIGN_PKT">
+      <Value>$(CODESIGN_PKT)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="CPU">
+      <Value>$(CPU)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="APPVER">
+      <Value>$(APPVER)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lib\krb5\acache.c" />
+    <ClCompile Include="lib\krb5\acl.c" />
+    <ClCompile Include="lib\krb5\addr_families.c" />
+    <ClCompile Include="lib\krb5\add_et_list.c" />
+    <ClCompile Include="lib\krb5\aname_to_localname.c" />
+    <ClCompile Include="lib\krb5\appdefault.c" />
+    <ClCompile Include="lib\krb5\asn1_glue.c" />
+    <ClCompile Include="lib\krb5\auth_context.c" />
+    <ClCompile Include="lib\krb5\build_ap_req.c" />
+    <ClCompile Include="lib\krb5\build_auth.c" />
+    <ClCompile Include="lib\krb5\cache.c" />
+    <ClCompile Include="lib\krb5\changepw.c" />
+    <ClCompile Include="lib\krb5\codec.c" />
+    <ClCompile Include="lib\krb5\config_file.c" />
+    <ClCompile Include="lib\krb5\config_reg.c" />
+    <ClCompile Include="lib\krb5\constants.c" />
+    <ClCompile Include="lib\krb5\context.c" />
+    <ClCompile Include="lib\krb5\convert_creds.c" />
+    <ClCompile Include="lib\krb5\copy_host_realm.c" />
+    <ClCompile Include="lib\krb5\crc.c" />
+    <ClCompile Include="lib\krb5\creds.c" />
+    <ClCompile Include="lib\krb5\crypto-aes-sha1.c" />
+    <ClCompile Include="lib\krb5\crypto-aes-sha2.c" />
+    <ClCompile Include="lib\krb5\crypto-algs.c" />
+    <ClCompile Include="lib\krb5\crypto-arcfour.c" />
+    <ClCompile Include="lib\krb5\crypto-des-common.c" />
+    <ClCompile Include="lib\krb5\crypto-des.c" />
+    <ClCompile Include="lib\krb5\crypto-des3.c" />
+    <ClCompile Include="lib\krb5\crypto-evp.c" />
+    <ClCompile Include="lib\krb5\crypto-null.c" />
+    <ClCompile Include="lib\krb5\crypto-pk.c" />
+    <ClCompile Include="lib\krb5\crypto-rand.c" />
+    <ClCompile Include="lib\krb5\crypto.c" />
+    <ClCompile Include="lib\krb5\data.c" />
+    <ClCompile Include="lib\krb5\db_plugin.c" />
+    <ClCompile Include="lib\krb5\dcache.c" />
+    <ClCompile Include="lib\krb5\deprecated.c" />
+    <ClCompile Include="lib\krb5\digest.c" />
+    <ClCompile Include="lib\krb5\dll.c" />
+    <ClCompile Include="lib\krb5\eai_to_heim_errno.c" />
+    <ClCompile Include="lib\krb5\enomem.c" />
+    <ClCompile Include="lib\krb5\error_string.c" />
+    <ClCompile Include="lib\krb5\expand_hostname.c" />
+    <ClCompile Include="lib\krb5\expand_path.c" />
+    <ClCompile Include="lib\krb5\fast.c" />
+    <ClCompile Include="lib\krb5\fcache.c" />
+    <ClCompile Include="lib\krb5\free.c" />
+    <ClCompile Include="lib\krb5\free_host_realm.c" />
+    <ClCompile Include="lib\krb5\generate_seq_number.c" />
+    <ClCompile Include="lib\krb5\generate_subkey.c" />
+    <ClCompile Include="lib\krb5\get_addrs.c" />
+    <ClCompile Include="lib\krb5\get_cred.c" />
+    <ClCompile Include="lib\krb5\get_default_principal.c" />
+    <ClCompile Include="lib\krb5\get_default_realm.c" />
+    <ClCompile Include="lib\krb5\get_for_creds.c" />
+    <ClCompile Include="lib\krb5\get_host_realm.c" />
+    <ClCompile Include="lib\krb5\get_in_tkt.c" />
+    <ClCompile Include="lib\krb5\get_port.c" />
+    <ClCompile Include="lib\krb5\init_creds.c" />
+    <ClCompile Include="lib\krb5\init_creds_pw.c" />
+    <ClCompile Include="lib\krb5\kcm.c" />
+    <ClCompile Include="lib\krb5\keyblock.c" />
+    <ClCompile Include="lib\krb5\keytab.c" />
+    <ClCompile Include="lib\krb5\keytab_any.c" />
+    <ClCompile Include="lib\krb5\keytab_file.c" />
+    <ClCompile Include="lib\krb5\keytab_keyfile.c" />
+    <ClCompile Include="lib\krb5\keytab_memory.c" />
+    <ClCompile Include="lib\krb5\krbhst.c" />
+    <ClCompile Include="lib\krb5\kuserok.c" />
+    <ClCompile Include="lib\krb5\log.c" />
+    <ClCompile Include="lib\krb5\mcache.c" />
+    <ClCompile Include="lib\krb5\misc.c" />
+    <ClCompile Include="lib\krb5\mit_glue.c" />
+    <ClCompile Include="lib\krb5\mk_error.c" />
+    <ClCompile Include="lib\krb5\mk_priv.c" />
+    <ClCompile Include="lib\krb5\mk_rep.c" />
+    <ClCompile Include="lib\krb5\mk_req.c" />
+    <ClCompile Include="lib\krb5\mk_req_ext.c" />
+    <ClCompile Include="lib\krb5\mk_safe.c" />
+    <ClCompile Include="lib\krb5\n-fold.c" />
+    <ClCompile Include="lib\krb5\net_read.c" />
+    <ClCompile Include="lib\krb5\net_write.c" />
+    <ClCompile Include="lib\krb5\pac.c" />
+    <ClCompile Include="lib\krb5\padata.c" />
+    <ClCompile Include="lib\krb5\pcache.c" />
+    <ClCompile Include="lib\krb5\pkinit-ec.c" />
+    <ClCompile Include="lib\krb5\pkinit.c" />
+    <ClCompile Include="lib\krb5\plugin.c" />
+    <ClCompile Include="lib\krb5\principal.c" />
+    <ClCompile Include="lib\krb5\prog_setup.c" />
+    <ClCompile Include="lib\krb5\prompter_posix.c" />
+    <ClCompile Include="lib\krb5\rd_cred.c" />
+    <ClCompile Include="lib\krb5\rd_error.c" />
+    <ClCompile Include="lib\krb5\rd_priv.c" />
+    <ClCompile Include="lib\krb5\rd_rep.c" />
+    <ClCompile Include="lib\krb5\rd_req.c" />
+    <ClCompile Include="lib\krb5\rd_safe.c" />
+    <ClCompile Include="lib\krb5\read_message.c" />
+    <ClCompile Include="lib\krb5\recvauth.c" />
+    <ClCompile Include="lib\krb5\replay.c" />
+    <ClCompile Include="lib\krb5\salt-aes-sha1.c" />
+    <ClCompile Include="lib\krb5\salt-aes-sha2.c" />
+    <ClCompile Include="lib\krb5\salt-arcfour.c" />
+    <ClCompile Include="lib\krb5\salt-des.c" />
+    <ClCompile Include="lib\krb5\salt-des3.c" />
+    <ClCompile Include="lib\krb5\salt.c" />
+    <ClCompile Include="lib\krb5\scache.c" />
+    <ClCompile Include="lib\krb5\sendauth.c" />
+    <ClCompile Include="lib\krb5\send_to_kdc.c" />
+    <ClCompile Include="lib\krb5\set_default_realm.c" />
+    <ClCompile Include="lib\krb5\sock_principal.c" />
+    <ClCompile Include="lib\krb5\sp800-108-kdf.c" />
+    <ClCompile Include="lib\krb5\store-int.c" />
+    <ClCompile Include="lib\krb5\store.c" />
+    <ClCompile Include="lib\krb5\store_emem.c" />
+    <ClCompile Include="lib\krb5\store_fd.c" />
+    <ClCompile Include="lib\krb5\store_mem.c" />
+    <ClCompile Include="lib\krb5\store_sock.c" />
+    <ClCompile Include="lib\krb5\ticket.c" />
+    <ClCompile Include="lib\krb5\time.c" />
+    <ClCompile Include="lib\krb5\transited.c" />
+    <ClCompile Include="lib\krb5\verify_init.c" />
+    <ClCompile Include="lib\krb5\verify_user.c" />
+    <ClCompile Include="lib\krb5\version.c" />
+    <ClCompile Include="lib\krb5\warn.c" />
+    <ClCompile Include="lib\krb5\write_message.c" />
+    <ClCompile Include="$(IntDir)heim_err.c" />
+    <ClCompile Include="$(IntDir)k524_err.c" />
+    <ClCompile Include="$(IntDir)krb5_err.c" />
+    <ClCompile Include="$(IntDir)krb_err.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\krb5\an2ln_plugin.h" />
+    <ClInclude Include="lib\krb5\ccache_plugin.h" />
+    <ClInclude Include="lib\krb5\crypto.h" />
+    <ClInclude Include="lib\krb5\db_plugin.h" />
+    <ClInclude Include="lib\krb5\kcm.h" />
+    <ClInclude Include="lib\krb5\krb5-v4compat.h" />
+    <ClInclude Include="lib\krb5\krb5.h" />
+    <ClInclude Include="lib\krb5\krb5_ccapi.h" />
+    <ClInclude Include="lib\krb5\krb5_locl.h" />
+    <ClInclude Include="lib\krb5\kuserok_plugin.h" />
+    <ClInclude Include="lib\krb5\locate_plugin.h" />
+    <ClInclude Include="lib\krb5\send_to_kdc_plugin.h" />
+    <ClInclude Include="lib\krb5\store-int.h" />
+    <ClInclude Include="$(IntDir)heim_err.h" />
+    <ClInclude Include="$(IntDir)k524_err.h" />
+    <_ProtoSources Include="lib\krb5\acache.c;lib\krb5\acl.c;lib\krb5\add_et_list.c;lib\krb5\addr_families.c;lib\krb5\aname_to_localname.c;lib\krb5\appdefault.c;lib\krb5\asn1_glue.c;lib\krb5\auth_context.c;lib\krb5\build_ap_req.c;lib\krb5\build_auth.c;lib\krb5\cache.c;lib\krb5\changepw.c;lib\krb5\codec.c;lib\krb5\config_file.c;lib\krb5\config_reg.c;lib\krb5\constants.c;lib\krb5\context.c;lib\krb5\copy_host_realm.c;lib\krb5\crc.c;lib\krb5\creds.c;lib\krb5\crypto.c;lib\krb5\crypto.h;lib\krb5\crypto-aes-sha1.c;lib\krb5\crypto-aes-sha2.c;lib\krb5\crypto-algs.c;lib\krb5\crypto-arcfour.c;lib\krb5\crypto-des.c;lib\krb5\crypto-des-common.c;lib\krb5\crypto-des3.c;lib\krb5\crypto-evp.c;lib\krb5\crypto-pk.c;lib\krb5\crypto-rand.c;lib\krb5\db_plugin.c;lib\krb5\doxygen.c;lib\krb5\data.c;lib\krb5\dcache.c;lib\krb5\deprecated.c;lib\krb5\digest.c;lib\krb5\eai_to_heim_errno.c;lib\krb5\enomem.c;lib\krb5\error_string.c;lib\krb5\expand_hostname.c;lib\krb5\expand_path.c;lib\krb5\fast.c;lib\krb5\fcache.c;lib\krb5\free.c;lib\krb5\free_host_realm.c;lib\krb5\generate_seq_number.c;lib\krb5\generate_subkey.c;lib\krb5\get_addrs.c;lib\krb5\get_cred.c;lib\krb5\get_default_principal.c;lib\krb5\get_default_realm.c;lib\krb5\get_for_creds.c;lib\krb5\get_host_realm.c;lib\krb5\get_in_tkt.c;lib\krb5\get_port.c;lib\krb5\init_creds.c;lib\krb5\init_creds_pw.c;lib\krb5\kcm.c;lib\krb5\kcm.h;lib\krb5\keyblock.c;lib\krb5\keytab.c;lib\krb5\keytab_any.c;lib\krb5\keytab_file.c;lib\krb5\keytab_keyfile.c;lib\krb5\keytab_memory.c;lib\krb5\krb5_locl.h;lib\krb5\krb5-v4compat.h;lib\krb5\krbhst.c;lib\krb5\kuserok.c;lib\krb5\log.c;lib\krb5\mcache.c;lib\krb5\misc.c;lib\krb5\mk_error.c;lib\krb5\mk_priv.c;lib\krb5\mk_rep.c;lib\krb5\mk_req.c;lib\krb5\mk_req_ext.c;lib\krb5\mk_safe.c;lib\krb5\mit_glue.c;lib\krb5\net_read.c;lib\krb5\net_write.c;lib\krb5\n-fold.c;lib\krb5\pac.c;lib\krb5\padata.c;lib\krb5\pkinit.c;lib\krb5\pkinit-ec.c;lib\krb5\plugin.c;lib\krb5\principal.c;lib\krb5\prog_setup.c;lib\krb5\prompter_posix.c;lib\krb5\rd_cred.c;lib\krb5\rd_error.c;lib\krb5\rd_priv.c;lib\krb5\rd_rep.c;lib\krb5\rd_req.c;lib\krb5\rd_safe.c;lib\krb5\read_message.c;lib\krb5\recvauth.c;lib\krb5\replay.c;lib\krb5\salt.c;lib\krb5\salt-aes-sha1.c;lib\krb5\salt-aes-sha2.c;lib\krb5\salt-arcfour.c;lib\krb5\salt-des.c;lib\krb5\salt-des3.c;lib\krb5\scache.c;lib\krb5\send_to_kdc.c;lib\krb5\sendauth.c;lib\krb5\set_default_realm.c;lib\krb5\sock_principal.c;lib\krb5\sp800-108-kdf.c;lib\krb5\store.c;lib\krb5\store-int.c;lib\krb5\store-int.h;lib\krb5\store_emem.c;lib\krb5\store_fd.c;lib\krb5\store_mem.c;lib\krb5\store_sock.c;lib\krb5\pcache.c;lib\krb5\plugin.c;lib\krb5\ticket.c;lib\krb5\time.c;lib\krb5\transited.c;lib\krb5\verify_init.c;lib\krb5\verify_user.c;lib\krb5\version.c;lib\krb5\warn.c;lib\krb5\write_message.c" />
+    <CustomBuild Include="$(IntDir)krb5-protos.h">
+      <Command>$(PERL) "$(SolutionDir)cf\make-proto.pl" -E KRB5_LIB -q -P remove -o %(Identity) @(_ProtoSources->'%(Identity)', ' ')</Command>
+      <Outputs>%(Identity)</Outputs>
+      <AdditionalInputs>@(_ProtoSources)</AdditionalInputs>
+      <Message>Generate prototype header...</Message>
+      <OutputItemType>ClInclude</OutputItemType>
+      <TreatOutputAsContent>true</TreatOutputAsContent>
+      <RootFolder>$(OutDir)inc\</RootFolder>
+      <BuildInParallel>true</BuildInParallel>
+    </CustomBuild>
+    <CustomBuild Include="$(IntDir)krb5-private.h">
+      <Command>$(PERL) "$(SolutionDir)cf\make-proto.pl" -q -P remove -p %(Identity) @(_ProtoSources->'%(Identity)', ' ')</Command>
+      <Outputs>%(Identity)</Outputs>
+      <AdditionalInputs>@(_ProtoSources)</AdditionalInputs>
+      <Message>Generate private prototype header...</Message>
+      <OutputItemType>ClInclude</OutputItemType>
+      <TreatOutputAsContent>true</TreatOutputAsContent>
+      <RootFolder>$(OutDir)inc\</RootFolder>
+      <BuildInParallel>true</BuildInParallel>
+    </CustomBuild>
+    <ClInclude Include="$(IntDir)krb5_err.h" />
+    <ClInclude Include="$(IntDir)krb_err.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="lib\krb5\verify_krb5_conf-version.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lib\krb5\libkrb5-exports.def.in">
+      <FileType>DEF</FileType>
+      <PreprocessToFile>true</PreprocessToFile>
+      <PreprocessSuppressLineNumbers>true</PreprocessSuppressLineNumbers>
+      <PreprocessOutputPath>$(IntDir)libkrb5-exports.def</PreprocessOutputPath>
+      <ForcedIncludeFiles>$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '$(OutDir)inc\'))config.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>CPP_ONLY=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <CompileAs>CompileAsC</CompileAs>
+      <AdditionalOptions>/Fi"$(IntDir)libkrb5-exports.def" %(AdditionalOptions)</AdditionalOptions>
+      <LinkCompiled>false</LinkCompiled>
+      <LibCompiled>false</LibCompiled>
+      <ImpLibCompiled>false</ImpLibCompiled>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libheimbase.vcxproj">
+      <Project>{ce1042b2-0954-4c9f-bf35-a3da1ce344c1}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ErrorTable Include="lib\krb5\heim_err.et" />
+    <ErrorTable Include="lib\krb5\k524_err.et" />
+    <ErrorTable Include="lib\krb5\krb5_err.et" />
+    <ErrorTable Include="lib\krb5\krb_err.et" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{4ED22415-CCC6-4D2C-8F5F-D437B88040BB}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>libkrb5</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="heimdal.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserMacros.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IntDir>out\obj_$(CPU)\lib\krb5\</IntDir>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IntDir>out\obj_$(CPU)\lib\krb5\</IntDir>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>out\obj_$(CPU)\lib\krb5\</IntDir>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IntDir>out\obj_$(CPU)\lib\krb5\</IntDir>
+    <OutDir>out\dest_$(CPU)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;BUILD_KRB5_LIB;ASN1_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;BUILD_KRB5_LIB;ASN1_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;BUILD_KRB5_LIB;ASN1_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;BUILD_KRB5_LIB;ASN1_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)lib\$(TargetName)$(TargetExt)</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="heimdal.targets" />
+  </ImportGroup>
+</Project>
