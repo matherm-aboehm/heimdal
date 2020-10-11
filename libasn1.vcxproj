@@ -192,21 +192,21 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>out\dest_$(CPU)\</OutDir>
-    <IntDir>out\obj_$(CPU)\lib\asn1\</IntDir>
+    <OutDir>$(SolutionDir)out\dest_$(CPU)\</OutDir>
+    <IntDir>$(SolutionDir)out\obj_$(CPU)\lib\asn1\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>out\dest_$(CPU)\</OutDir>
-    <IntDir>out\obj_$(CPU)\lib\asn1\</IntDir>
+    <OutDir>$(SolutionDir)out\dest_$(CPU)\</OutDir>
+    <IntDir>$(SolutionDir)out\obj_$(CPU)\lib\asn1\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>out\dest_$(CPU)\</OutDir>
-    <IntDir>out\obj_$(CPU)\lib\asn1\</IntDir>
+    <OutDir>$(SolutionDir)out\dest_$(CPU)\</OutDir>
+    <IntDir>$(SolutionDir)out\obj_$(CPU)\lib\asn1\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>out\dest_$(CPU)\</OutDir>
-    <IntDir>out\obj_$(CPU)\lib\asn1\</IntDir>
+    <OutDir>$(SolutionDir)out\dest_$(CPU)\</OutDir>
+    <IntDir>$(SolutionDir)out\obj_$(CPU)\lib\asn1\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

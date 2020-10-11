@@ -305,9 +305,6 @@
     <CustomBuild Include="lib\asn1\*.asn1">
       <Filter>Generierte Dateien</Filter>
     </CustomBuild>
-    <CustomBuild Include="lib\asn1\*.asn1">
-      <Filter>Generierte Dateien</Filter>
-    </CustomBuild>
     <CustomBuild Include="$(IntDir)der-private.h">
       <Filter>Generierte Dateien</Filter>
     </CustomBuild>
@@ -598,9 +595,6 @@
       <Filter>Generierte Dateien</Filter>
     </ASN1File>
     <ASN1File Include="lib\asn1\rfc2459.asn1">
-      <Filter>Generierte Dateien</Filter>
-    </ASN1File>
-    <ASN1File Include="lib\asn1\test.asn1">
       <Filter>Generierte Dateien</Filter>
     </ASN1File>
     <ASN1File Include="lib\asn1\pkinit.asn1">

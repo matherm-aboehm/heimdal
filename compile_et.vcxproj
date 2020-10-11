@@ -115,7 +115,7 @@
     <ProjectGuid>{542A008C-C3DC-4BBA-828E-9E27B78551F0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>compileet</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -169,25 +169,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>out\dest_$(CPU)\</OutDir>
-    <IntDir>out\obj_$(CPU)\lib\com_err\</IntDir>
+    <OutDir>$(SolutionDir)out\dest_$(CPU)\</OutDir>
+    <IntDir>$(SolutionDir)out\obj_$(CPU)\lib\com_err\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>out\dest_$(CPU)\</OutDir>
-    <IntDir>out\obj_$(CPU)\lib\com_err\</IntDir>
+    <OutDir>$(SolutionDir)out\dest_$(CPU)\</OutDir>
+    <IntDir>$(SolutionDir)out\obj_$(CPU)\lib\com_err\</IntDir>
     <ExecutablePath>$(ExecutablePath);d:\cygwin64\bin;$(WIX)bin</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>out\dest_$(CPU)\</OutDir>
-    <IntDir>out\obj_$(CPU)\lib\com_err\</IntDir>
+    <OutDir>$(SolutionDir)out\dest_$(CPU)\</OutDir>
+    <IntDir>$(SolutionDir)out\obj_$(CPU)\lib\com_err\</IntDir>
     <ExecutablePath>$(ExecutablePath);d:\cygwin64\bin;$(WIX)bin</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>out\dest_$(CPU)\</OutDir>
-    <IntDir>out\obj_$(CPU)\lib\com_err\</IntDir>
+    <OutDir>$(SolutionDir)out\dest_$(CPU)\</OutDir>
+    <IntDir>$(SolutionDir)out\obj_$(CPU)\lib\com_err\</IntDir>
     <ExecutablePath>$(ExecutablePath);d:\cygwin64\bin;$(WIX)bin</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

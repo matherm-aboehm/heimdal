@@ -55,7 +55,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{CE1042B2-0954-4C9F-BF35-A3DA1CE344C1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>7.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -102,23 +102,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IntDir>out\obj_$(CPU)\lib\base\</IntDir>
-    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>$(SolutionDir)out\obj_$(CPU)\lib\base\</IntDir>
+    <OutDir>$(SolutionDir)out\dest_$(CPU)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IntDir>out\obj_$(CPU)\lib\base\</IntDir>
-    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>$(SolutionDir)out\obj_$(CPU)\lib\base\</IntDir>
+    <OutDir>$(SolutionDir)out\dest_$(CPU)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IntDir>out\obj_$(CPU)\lib\base\</IntDir>
-    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>$(SolutionDir)out\obj_$(CPU)\lib\base\</IntDir>
+    <OutDir>$(SolutionDir)out\dest_$(CPU)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IntDir>out\obj_$(CPU)\lib\base\</IntDir>
-    <OutDir>out\dest_$(CPU)\</OutDir>
+    <IntDir>$(SolutionDir)out\obj_$(CPU)\lib\base\</IntDir>
+    <OutDir>$(SolutionDir)out\dest_$(CPU)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

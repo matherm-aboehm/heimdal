@@ -4,6 +4,6 @@
     <LocalDebuggerWorkingDirectory>C:\Program Files\Heimdal\bin\</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerCommand>C:\Program Files\Heimdal\bin\$(TargetName)$(TargetExt)</LocalDebuggerCommand>
-    <LocalDebuggerCommandArguments>-k svn/Kronos.matherm.de</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>-v -k --renew svn/kronos.matherm.de</LocalDebuggerCommandArguments>
   </PropertyGroup>
 </Project>
