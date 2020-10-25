@@ -67,10 +67,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <NMakeBuildCommandLine>nmake /f NTMakefile</NMakeBuildCommandLine>
+    <NMakeBuildCommandLine>nmake /f NTMakefile KFWSDK=D:\OpenSource\kfw-3-2-2-final NO_INSTALLERS=1</NMakeBuildCommandLine>
     <NMakeOutput>heimdal.exe</NMakeOutput>
     <NMakeCleanCommandLine>nmake /f NTMakefile clean</NMakeCleanCommandLine>
-    <NMakeReBuildCommandLine>nmake /f NTMakefile</NMakeReBuildCommandLine>
+    <NMakeReBuildCommandLine>nmake /f NTMakefile clean
+nmake /f NTMakefile KFWSDK=D:\OpenSource\kfw-3-2-2-final NO_INSTALLERS=1</NMakeReBuildCommandLine>
     <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

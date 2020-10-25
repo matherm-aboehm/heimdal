@@ -61,6 +61,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "plugin", "plugin", "{A998E5
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libplugin_mslsa", "thirdparty\plugin\mslsa\libplugin_mslsa.vcxproj", "{A6D020AD-3A20-420D-9E2C-764324BD8076}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gssapi", "thirdparty\mkshim\gssapi.vcxproj", "{3DE23271-AB12-4EAC-A089-0FA39318B895}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -361,6 +363,22 @@ Global
 		{A6D020AD-3A20-420D-9E2C-764324BD8076}.Release-Static|x64.Build.0 = Release|x64
 		{A6D020AD-3A20-420D-9E2C-764324BD8076}.Release-Static|x86.ActiveCfg = Release|Win32
 		{A6D020AD-3A20-420D-9E2C-764324BD8076}.Release-Static|x86.Build.0 = Release|Win32
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Debug|x64.ActiveCfg = Debug|x64
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Debug|x64.Build.0 = Debug|x64
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Debug|x86.ActiveCfg = Debug|Win32
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Debug|x86.Build.0 = Debug|Win32
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Debug-Static|x64.ActiveCfg = Debug|x64
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Debug-Static|x64.Build.0 = Debug|x64
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Debug-Static|x86.ActiveCfg = Debug|Win32
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Debug-Static|x86.Build.0 = Debug|Win32
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Release|x64.ActiveCfg = Release|x64
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Release|x64.Build.0 = Release|x64
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Release|x86.ActiveCfg = Release|Win32
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Release|x86.Build.0 = Release|Win32
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Release-Static|x64.ActiveCfg = Release|x64
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Release-Static|x64.Build.0 = Release|x64
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Release-Static|x86.ActiveCfg = Release|Win32
+		{3DE23271-AB12-4EAC-A089-0FA39318B895}.Release-Static|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -383,6 +401,7 @@ Global
 		{377A6054-AF38-4BB2-834F-0CB52371B3F4} = {C6248DA2-D303-4889-A23A-5C4A5E2A624B}
 		{32C40345-406A-4578-83F5-2192EAAE21D5} = {60507CF7-22F5-425D-91AE-F2AA8070D853}
 		{A6D020AD-3A20-420D-9E2C-764324BD8076} = {A998E5BA-DD5A-4ED8-AD86-B0C250E13E91}
+		{3DE23271-AB12-4EAC-A089-0FA39318B895} = {C6248DA2-D303-4889-A23A-5C4A5E2A624B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {975F7C75-5FA1-4C91-A3E5-622E41B91715}
